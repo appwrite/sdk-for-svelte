@@ -1,4 +1,4 @@
-# WIP: svelte-appwrite
+# WIP: sdk-for-svelte
 
 Easy to use [Appwrite](https://appwrite.io/) components for Svelte. Install it:
 
