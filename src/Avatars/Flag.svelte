@@ -1,0 +1,12 @@
+<script>
+  import Appwrite from "../appwrite";
+
+  export let code;
+  export let width = 100;
+  export let height = 100;
+  export let quality = 100;
+
+  let src = Appwrite.sdk.avatars.getFlag(code, width, height, quality);
+</script>
+
+<slot {src} />
