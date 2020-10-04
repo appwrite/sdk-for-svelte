@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { active, currentUser } from ".../stores";
-  import Appwrite from ".../appwrite";
+  import { active, currentUser } from "../stores";
+  import Appwrite from "../appwrite";
 
   const dispatch = createEventDispatcher();
 
