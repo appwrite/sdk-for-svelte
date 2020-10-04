@@ -1,4 +1,5 @@
 export { default as Appwrite } from "./Init.svelte";
+export { default as Instance } from "./appwrite";
 
 export { default as User } from "./Account/User.svelte";
 export { default as Create } from "./Account/Create.svelte";
