@@ -3,9 +3,18 @@
   import Appwrite from "../appwrite";
 
   const dispatch = createEventDispatcher();
+  export let id;
+  export let collection;
   export let document;
 
+  const fetchDocument = () => Appwrite.sdk.database.getDocument(collection, id);
+
+  if (id && collection && !document) {
+    document = fetchDocument();
+  }
+
   export const actions = {
+    reload: () => (document = fetchDocument()),
     update: async data => {
       await Appwrite.sdk.database.updateDocument(
         document.$collection,
@@ -26,4 +35,14 @@
   };
 </script>
 
-<slot {actions} />
+{#if id && collection}
+  {#await document}
+    <slot name="loading" />
+  {:then current}
+    <slot document={current} {actions} />
+  {:catch error}
+    <slot name="error" {error} />
+  {/await}
+{:else}
+  <slot {actions} />
+{/if}
