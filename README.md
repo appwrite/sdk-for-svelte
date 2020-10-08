@@ -218,6 +218,7 @@ Get a document. If you pass the `document` property with data from <Collection /
 | Name | Description |
 | --- | --- |
 | `id` | Document unique ID |
+| `collection` | Collection unique ID |
 | or |
 | `document` | Document passed from `<Collection />` |
 
@@ -236,6 +237,7 @@ Object with function.
 | --- | --- |
 | `update(data)` | Update the document. |
 | `remove()` | Deletes the document. |
+| `reload()` | Re-fetch document. |
 
 ### Events
 
