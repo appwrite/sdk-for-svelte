@@ -46,6 +46,67 @@ Must be initialised and wrap every `svelte-appwrite` component.
 | `project` | Your project ID |
 | `locale` | _Optional_ The users locale |
 
+## Create user
+
+Registers a new account.
+
+```svelte
+<script>
+  import { Create } from "svelte-appwrite";
+
+  let email = "";
+  let password = "";
+  let name = "";
+
+  const success = e => {
+    //success callback
+    // `e` contains the user object
+  };
+
+  const failure = e => {
+    //failure callback
+  }
+</script>
+
+<Create let:actions on:success on:failure>
+  <input type="text" bind:value={email}>
+  <input type="password" bind:value={password}>
+  <input type="text" bind:value={name}>
+  <button on:click={actions.create(email,password, name)}>Register</button>
+</Create>
+```
+
+### Directives
+
+**let:actions** `object`
+
+Object with function.
+
+#### Arguments
+| Name | Description |
+| --- | --- |
+| `create(email, password, name)` | Registers a new user. |
+
+### Events
+
+**on:success**
+
+Triggers on successful register.
+
+#### Arguments
+| Name | Description |
+| --- | --- |
+| `response` | Response |
+
+**on:failure**
+
+Triggers on failed register.
+
+#### Arguments
+| Name | Description |
+| --- | --- |
+| `response` | Response |
+
 ## AuthEmail
 
 Login via email and password.
@@ -96,7 +157,6 @@ Triggers on successful login.
 | Name | Description |
 | --- | --- |
 | `email` | E-Mail |
-| `password` | Password |
 
 **on:failure**
 
@@ -105,8 +165,7 @@ Triggers on failed login.
 #### Arguments
 | Name | Description |
 | --- | --- |
-| `email` | E-Mail |
-| `password` | Password |
+| `error` | Error object. |
 
 ## Login OAuth2
 
@@ -129,9 +188,9 @@ Login via an OAuth2 provider.
 ### Properties
 | Name | Description |
 | --- | --- |
-| `provider` | Your Appwrite endpoint |
-| `success` | Your project ID |
-| `failure` | _Optional_ The users locale |
+| `provider` | OAuth2 provider |
+| `success` | Success url |
+| `failure` | Failure url |
 
 ### Directives
 
