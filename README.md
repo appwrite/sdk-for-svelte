@@ -439,3 +439,31 @@ Triggers on update or remove login.
 - **on:failureCreate** On `create` failure.
 - **on:successComplete** On `complete` success.
 - **on:failureComplete** On `complete` failure.
+
+## Auth
+
+### Email
+
+#### Slots
+
+- **loading**
+- **success**
+- **error**
+
+#### Directives
+
+**let:authorize(email, password)**
+**let:user** 
+**let:error**
+
+#### Events
+
+- **on:success** On `authorize` success.
+- **on:failure** On `authorize` failure.
+
+### OAuth2
+
+
+#### Directives
+
+**let:authorize()**
