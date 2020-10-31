@@ -11,7 +11,6 @@ npm install # or yarn
 - [x] Auth
 - [x] Avatars
 - [x] Database
-- [ ] Database (Parent Documents)
 - [x] Locale
 - [x] Storage
 - [ ] Teams
@@ -304,69 +303,139 @@ Object with function.
 
 Triggers on update or remove login.
 
-# Example
+# API
 
-## App.svelte
-```svelte
-<script>
-  import { Appwrite, User, OAuth2 } from "svelte-appwrite";
-  import TodoList from "./TodoList.svelte";
+## Acount
 
-  const config = {
-    endpoint: "http://localhost/v1",
-    project: "5f4938898667e",
-    locale: "de",
-  };
-</script>
+### Create
 
-<main>
-  <Appwrite {...config}>
-    <User let:user>
-      <h1>Hello {user.name}!</h1>
-      <div>{user.email}</div>
-      <TodoList />
-      <div slot="error">
-        <OAuth2
-          provider="discord"
-          success="http://localhost:5000?success"
-          failure="http://localhost:5000?failure"
-          let:authorize>
-          <button on:click={authorize}>Login Discord</button>
-        </OAuth2>
-      </div>
-    </User>
-  </Appwrite>
-</main>
-```
-## TodoList.svelte
+#### Directives
 
-```svelte
-<script>
-  import { Collection, Document } from "svelte-appwrite";
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `create(email, password, name)` | Creates a user. |
 
-  let value = "";
-</script>
+#### Events
 
-<Collection id="5f56a3035a01f" let:documents let:actions>
-  <form on:submit|preventDefault={actions.create({ label: value })}>
-    <input type="text" bind:value />
-  </form>
-  <ul>
-    {#each documents as document}
-      <Document document={document} on:change={actions.reload} let:actions>
-        <li>
-          <input
-            type="checkbox"
-            checked={document.done}
-            on:change={actions.update({ done: !document.done })} />
-          {document.label}
-          {#if document.done}
-            <button on:click={actions.remove}>remove</button>
-          {/if}
-        </li>
-      </Document>
-    {/each}
-  </ul>
-</Collection>
+- **on:success** On `create` success.
+- **on:failure** On `create` failure.
 
-```
+### Delete
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `delete()` | Deletes currently logged in user. |
+
+#### Events
+
+- **on:success** On `delete` success.
+- **on:failure** On `delete` failure.
+
+### Preferences
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reloads preferences. |
+| `update(prefs)` | Update preferences. |
+
+#### Events
+
+- **on:success** On init and `reload` success.
+- **on:failure** On init and `reload` failure.
+- **on:successUpdate** On `update` success.
+- **on:failureUpdate** On `update` failure.
+
+### RecoverPassword
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `recover(email, url)` | Recover password. |
+| `complete(user, secret, password, passwordAgain)` | Complete password recovery. |
+
+#### Events
+
+- **on:successRecover** On init and `reload` success.
+- **on:failureRecover** On init and `reload` failure.
+- **on:successComplete** On `update` success.
+- **on:failureComplete** On `update` failure.
+
+### Update
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `name(name)` | Update name. |
+| `email(email, password)` | Update email. |
+| `password(password, oldPassword)` | Update password. |
+
+#### Events
+
+- **on:successName** On `name` success.
+- **on:failureName** On `name` failure.
+- **on:successEmail** On `email` success.
+- **on:failureEmail** On `email` failure.
+- **on:successPassword** On `password` success.
+- **on:failurePassword** On `password` failure.
+
+### User
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+| `logout()` | Logout current session. |
+| `logoutAll()` | Logout from all session. |
+| `logoutFrom(session)` | Logout from specific session. |
+
+**let:user** 
+**let:error**
+
+#### Events
+
+- **on:successName** On `name` success.
+- **on:failureName** On `name` failure.
+- **on:successEmail** On `email` success.
+- **on:failureEmail** On `email` failure.
+- **on:successPassword** On `password` success.
+- **on:failurePassword** On `password` failure.
+
+### Verification
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `create(url)` | Reload. |
+| `complete(user, secret)` | Logout current session. |
+
+#### Events
+
+- **on:successCreate** On `create` success.
+- **on:failureCreate** On `create` failure.
+- **on:successComplete** On `complete` success.
+- **on:failureComplete** On `complete` failure.
