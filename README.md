@@ -411,8 +411,8 @@ Triggers on update or remove login.
 | `logoutAll()` | Logout from all session. |
 | `logoutFrom(session)` | Logout from specific session. |
 
-**let:user** 
-**let:error**
+- **let:user** 
+- **let:error**
 
 #### Events
 
@@ -452,9 +452,9 @@ Triggers on update or remove login.
 
 #### Directives
 
-**let:authorize(email, password)**
-**let:user** 
-**let:error**
+- **let:authorize(email, password)**
+- **let:user** 
+- **let:error**
 
 #### Events
 
@@ -467,3 +467,79 @@ Triggers on update or remove login.
 #### Directives
 
 **let:authorize()**
+
+## Avatars
+
+### Browser
+
+#### Arguments
+
+- code
+- width
+- height
+- quality
+
+#### Directives
+
+- **let:src** Image link
+
+### CreditCard
+
+#### Arguments
+
+- code
+- width
+- height
+- quality
+
+#### Directives
+
+- **let:src** Image link
+
+### Favicon
+
+#### Arguments
+
+- url
+
+#### Directives
+
+- **let:src** Image link
+
+### Flag
+
+#### Arguments
+
+- code
+- width
+- height
+- quality
+
+#### Directives
+
+- **let:src** Image link
+
+### Image
+
+#### Arguments
+
+- url
+- width
+- height
+
+#### Directives
+
+- **let:src** Image link
+
+### QR
+
+#### Arguments
+
+- text
+- size
+- margin
+- download
+
+#### Directives
+
+- **let:src** Image link
