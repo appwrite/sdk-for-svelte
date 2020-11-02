@@ -430,8 +430,8 @@ Triggers on update or remove login.
 **let:actions**
 | Name | Description |
 | --- | --- |
-| `create(url)` | Reload. |
-| `complete(user, secret)` | Logout current session. |
+| `create(url)` | Create Verification. |
+| `complete(user, secret)` | Complete Verification. |
 
 #### Events
 
@@ -543,3 +543,37 @@ Triggers on update or remove login.
 #### Directives
 
 - **let:src** Image link
+
+## Database
+
+### Collection
+
+#### Arguments
+
+- id
+- filters
+- offset
+- limit
+- orderField
+- orderType
+- orderCast
+- search
+- first
+- last
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+| `create(data, read, write)` | Creates a Document. |
+
+- **let:documents**
+- **let:error**
+
