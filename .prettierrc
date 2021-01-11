@@ -2,7 +2,7 @@
   "arrowParens": "avoid",
   "semi": true,
   "tabWidth": 2,
-  "svelteSortOrder" : "scripts-markup-styles",
+  "svelteSortOrder" : "options-scripts-markup-styles",
   "svelteStrictMode": false,
   "svelteBracketNewLine": false,
   "svelteAllowShorthand": true
