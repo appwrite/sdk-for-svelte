@@ -45,7 +45,7 @@
 {#await documents}
   <slot name="loading" />
 {:then current}
-  <slot documents={current.documents} {actions} />
+  <slot documents={current?.documents ?? []} {actions} />
 {:catch error}
   <slot name="error" {error} />
 {/await}

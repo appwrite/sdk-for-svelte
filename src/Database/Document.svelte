@@ -11,6 +11,9 @@
 
   if (id && collection && !document) {
     document = fetchDocument();
+  } else {
+    collection = document.$collection;
+    id = document.$id;
   }
 
   export const actions = {
