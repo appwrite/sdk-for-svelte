@@ -13,7 +13,7 @@
 
   const config = {
     endpoint: "http://localhost/v1",
-    project: "5f4938898667e",
+    project: "5ffc6c043586d",
     locale: "de",
   };
 </script>
@@ -24,9 +24,11 @@
       <h1>Hello {user.name}!</h1>
       <div>{user.email}</div>
       <Locale let:code>
-        <Flag code={code.countryCode} height="16" width="24" let:src>
-          You are from <img src={src.toLowerCase()} alt={code.country} title={code.country} />
-        </Flag>
+        {#if code.countryCode != "--"}
+          <Flag code={code.countryCode} height="16" width="24" let:src>
+            You are from <img src={src.toLowerCase()} alt={code.country} title={code.country} />
+          </Flag>
+        {/if}
       </Locale>
       <br />
       <Countries let:countries>

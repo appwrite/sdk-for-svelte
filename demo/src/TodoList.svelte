@@ -10,7 +10,7 @@
 </script>
 
 <h2>TodoList</h2>
-<Collection id="5f56a3035a01f" let:documents let:actions>
+<Collection id="5ffc6eb58c758" let:documents let:actions>
   <form on:submit|preventDefault={addTodo(actions)}>
     <input type="text" placeholder="add todo" bind:value />
   </form>
@@ -34,6 +34,14 @@
       </Document>
     {/each}
   </table>
+  <div slot="error" class="error">
+    <p>Collection not found, you have to create following collection with following rules in Appwrite:</p>
+    <pre>
+      - label: text
+      - done: boolean
+    </pre>
+    <p>Now paste the collection id in <i>TodoList.svelte</i>.</p>
+  </div>
 </Collection>
 
 <style>
@@ -45,5 +53,9 @@
   .remove {
     color: red;
     cursor: pointer;
+  }
+  .error {
+    background-color: lightblue;
+    padding: 1rem;
   }
 </style>

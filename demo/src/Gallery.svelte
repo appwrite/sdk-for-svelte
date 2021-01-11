@@ -4,7 +4,7 @@
   let input;
 
   const upload = async actions => {
-    if (input.length < 1 || !input[0].name.endsWith(".jpg")) return;
+    if (input.length < 1 || !(input[0].name.endsWith(".png") || input[0].name.endsWith(".jpg"))) return;
     actions.create(input[0]);
   };
 </script>
@@ -14,6 +14,7 @@
   <Storage let:actions on:success={actions.reload}>
     <input type="file" bind:files={input} on:change={upload(actions)} />
   </Storage>
+  <hr>
   {#each files as file}
     <File {file} let:actions>
       <a href={actions.download()}>
