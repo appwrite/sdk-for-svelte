@@ -22,6 +22,7 @@
     logout: async () => {
       try {
         const response = await Appwrite.sdk.account.deleteSession("current");
+        actions.reload();
         dispatch("successLogout", response);
       } catch (error) {
         dispatch("failure", error);
@@ -31,6 +32,7 @@
     logoutFrom: async session => {
       try {
         const response = await Appwrite.sdk.account.deleteSession(session);
+        actions.reload();
         dispatch("successLogoutFrom", response);
       } catch (error) {
         dispatch("failureLogoutFrom", error);
@@ -40,6 +42,7 @@
     logoutAll: async () => {
       try {
         const response = await Appwrite.sdk.account.deleteSessions();
+        actions.reload();
         dispatch("successLogoutAll", response);
       } catch (error) {
         dispatch("failureLogoutAll", error);
