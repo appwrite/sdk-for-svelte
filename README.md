@@ -18,6 +18,33 @@ npm install # or yarn
 
 # Usage
 
+**Psuedo Example**
+
+Handle multiple levels of async relational data (and their loading & fallback states) entirely from the Svelte HTML. 
+
+
+```svelte
+<!-- 1. 💪 Appwrite App -->
+<Appwrite {...config}>
+
+    <!-- 2. 😀 Get the current user -->
+    <User let:user>
+
+        <h1>Hello {user.name}!</h1>
+
+        <!-- 3. 📚 Get all the documents from a collection -->
+        <Collection collection="5f56a3035a01f" let:documents>
+            You have {documents.length} documents.
+            
+            {#each documents as document}
+
+                <!-- 4. 📜 Get a document -->
+                <Document {document}>
+                    Title: {document.title}
+                    Text: {document.text}
+...
+```
+
 ## Initialize
 
 Must be initialised and wrap every `svelte-appwrite` component.
