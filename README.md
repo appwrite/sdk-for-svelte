@@ -9,7 +9,6 @@ yarn svelte-appwrite
 ```
 
 # Table of contents
-=================
 
 - [Usage](#usage)
   - [Initialize](#initialize)
