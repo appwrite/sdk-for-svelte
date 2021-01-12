@@ -1,20 +1,55 @@
-# sdk-for-svelte (Alpha)
+# svelte-appwrite (Beta)
 
 Easy to use [Appwrite](https://appwrite.io/) components for Svelte. Install it:
 
 ```bash
-npm install # or yarn
+npm install svelte-appwrite
+# or 
+yarn svelte-appwrite
 ```
 
-# Status
-- [x] Account
-- [x] Auth
-- [x] Avatars
-- [x] Database
-- [x] Locale
-- [x] Storage
-- [ ] Teams
+# Table of contents
+=================
 
+- [Usage](#usage)
+  - [Initialize](#initialize)
+  - [Create user](#create-user)
+  - [Login via Email](#login-via-email)
+  - [Login via OAuth2](#login-via-oauth2)
+  - [Get user](#get-user)
+  - [Get Collection](#get-collection)
+  - [Get Document](#get-document)
+- [API](#api)
+  - [Account](#account)
+    - [`<User />`](#user-)
+    - [`<Create />`](#create-)
+    - [`<Delete />`](#delete-)
+    - [`<Preferences />`](#preferences-)
+    - [`<RecoverPassword />`](#recoverpassword-)
+    - [`<Update />`](#update-)
+  - [Auth](#auth)
+    - [`<AuthEmail />`](#authemail-)
+    - [`<AuthOAuth2 />`](#authoauth2-)
+  - [Avatars](#avatars)
+    - [`<Browser />`](#browser-)
+    - [`<CreditCard />`](#creditcard-)
+    - [`<Favicon />`](#favicon-)
+    - [`<Flag />`](#flag-)
+    - [`<Image />`](#image-)
+    - [`<QR />`](#qr-)
+  - [Database](#database)
+    - [`<Collection />`](#collection-)
+    - [`<Document />`](#document-)
+  - [Storage](#storage)
+    - [`<Storage />`](#storage-)
+    - [`<FileList />`](#filelist-)
+    - [`<File />`](#file-)
+  - [Locale](#locale)
+    - [`<Continents />`](#continents-)
+    - [`<Countries />`](#countries-)
+    - [`<Currencies />`](#currencies-)
+    - [`<Locale />`](#locale-)
+    - [`<PhoneCodes />`](#phonecodes-)
 
 # Usage
 
@@ -133,7 +168,7 @@ Triggers on failed register.
 | --- | --- |
 | `response` | Response |
 
-## AuthEmail
+## Login via Email
 
 Login via email and password.
 
@@ -193,7 +228,7 @@ Triggers on failed login.
 | --- | --- |
 | `error` | Error object. |
 
-## Login OAuth2
+## Login via OAuth2
 
 Login via an OAuth2 provider.
 
@@ -221,8 +256,6 @@ Login via an OAuth2 provider.
 ### Directives
 
 **let:authorize** `function`
-
-Initiates OAuth2 login.
 
 ## Get user
 
@@ -332,96 +365,10 @@ Triggers on update or remove login.
 
 # API
 
-## Acount
+## Account
+The Account components allow you to manage a user account.
 
-### Create
-
-#### Directives
-
-**let:actions**
-| Name | Description |
-| --- | --- |
-| `create(email, password, name)` | Creates a user. |
-
-#### Events
-
-- **on:success** On `create` success.
-- **on:failure** On `create` failure.
-
-### Delete
-
-#### Directives
-
-**let:actions**
-| Name | Description |
-| --- | --- |
-| `delete()` | Deletes currently logged in user. |
-
-#### Events
-
-- **on:success** On `delete` success.
-- **on:failure** On `delete` failure.
-
-### Preferences
-
-#### Slots
-
-- **loading**
-- **error**
-
-#### Directives
-
-**let:actions**
-| Name | Description |
-| --- | --- |
-| `reload()` | Reloads preferences. |
-| `update(prefs)` | Update preferences. |
-
-#### Events
-
-- **on:success** On init and `reload` success.
-- **on:failure** On init and `reload` failure.
-- **on:successUpdate** On `update` success.
-- **on:failureUpdate** On `update` failure.
-
-### RecoverPassword
-
-#### Directives
-
-**let:actions**
-| Name | Description |
-| --- | --- |
-| `recover(email, url)` | Recover password. |
-| `complete(user, secret, password, passwordAgain)` | Complete password recovery. |
-
-#### Events
-
-- **on:successRecover** On init and `reload` success.
-- **on:failureRecover** On init and `reload` failure.
-- **on:successComplete** On `update` success.
-- **on:failureComplete** On `update` failure.
-
-### Update
-
-#### Directives
-
-**let:actions**
-| Name | Description |
-| --- | --- |
-| `name(name)` | Update name. |
-| `email(email, password)` | Update email. |
-| `password(password, oldPassword)` | Update password. |
-
-#### Events
-
-- **on:successName** On `name` success.
-- **on:failureName** On `name` failure.
-- **on:successEmail** On `email` success.
-- **on:failureEmail** On `email` failure.
-- **on:successPassword** On `password` success.
-- **on:failurePassword** On `password` failure.
-
-### User
+### `<User />`
 
 #### Slots
 
@@ -443,6 +390,95 @@ Triggers on update or remove login.
 
 #### Events
 
+- **on:success** On user fetch success.
+- **on:failure** On user fetch failure.
+- **on:successLogout** On `logout` success.
+- **on:failureLogout** On `logout` failure.
+- **on:successLogoutFrom** On `logoutFrom` success.
+- **on:failureLogoutFrom** On `logoutFrom` failure.
+- **on:successLogoutAll** On `logoutAll` success.
+- **on:failureLogoutAll** On `logoutAll` failure.
+
+### `<Create />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `create(email, password, name)` | Creates a user. |
+
+#### Events
+
+- **on:success** On `create` success.
+- **on:failure** On `create` failure.
+
+### `<Delete />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `delete()` | Deletes currently logged in user. |
+
+#### Events
+
+- **on:success** On `delete` success.
+- **on:failure** On `delete` failure.
+
+### `<Preferences />`
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reloads preferences. |
+| `update(prefs)` | Update preferences. |
+
+#### Events
+
+- **on:success** On init and `reload` success.
+- **on:failure** On init and `reload` failure.
+- **on:successUpdate** On `update` success.
+- **on:failureUpdate** On `update` failure.
+
+### `<RecoverPassword />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `recover(email, url)` | Recover password. |
+| `complete(user, secret, password, passwordAgain)` | Complete password recovery. |
+
+#### Events
+
+- **on:successRecover** On init and `reload` success.
+- **on:failureRecover** On init and `reload` failure.
+- **on:successComplete** On `update` success.
+- **on:failureComplete** On `update` failure.
+
+### `<Update />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `name(name)` | Update name. |
+| `email(email, password)` | Update email. |
+| `password(password, oldPassword)` | Update password. |
+
+#### Events
+
 - **on:successName** On `name` success.
 - **on:failureName** On `name` failure.
 - **on:successEmail** On `email` success.
@@ -450,7 +486,7 @@ Triggers on update or remove login.
 - **on:successPassword** On `password` success.
 - **on:failurePassword** On `password` failure.
 
-### Verification
+### `<Verification />`
 
 #### Directives
 
@@ -468,8 +504,9 @@ Triggers on update or remove login.
 - **on:failureComplete** On `complete` failure.
 
 ## Auth
+The Auth components allow you to authenticate a user account.
 
-### Email
+### `<AuthEmail />`
 
 #### Slots
 
@@ -488,29 +525,22 @@ Triggers on update or remove login.
 - **on:success** On `authorize` success.
 - **on:failure** On `authorize` failure.
 
-### OAuth2
+### `<AuthOAuth2 />`
 
-
+#### Properties
+| Name | Description |
+| --- | --- |
+| `provider` | OAuth2 provider |
+| `success` | Success url |
+| `failure` | Failure url |
 #### Directives
 
 **let:authorize()**
 
 ## Avatars
+The Avatar components aim to help you complete everyday tasks related to your app image, icons, and avatars.
 
-### Browser
-
-#### Arguments
-
-- code
-- width
-- height
-- quality
-
-#### Directives
-
-- **let:src** Image link
-
-### CreditCard
+### `<Browser />`
 
 #### Arguments
 
@@ -523,7 +553,20 @@ Triggers on update or remove login.
 
 - **let:src** Image link
 
-### Favicon
+### `<CreditCard />`
+
+#### Arguments
+
+- code
+- width
+- height
+- quality
+
+#### Directives
+
+- **let:src** Image link
+
+### `<Favicon />`
 
 #### Arguments
 
@@ -533,7 +576,7 @@ Triggers on update or remove login.
 
 - **let:src** Image link
 
-### Flag
+### `<Flag />`
 
 #### Arguments
 
@@ -546,7 +589,7 @@ Triggers on update or remove login.
 
 - **let:src** Image link
 
-### Image
+### `<Image />`
 
 #### Arguments
 
@@ -558,7 +601,7 @@ Triggers on update or remove login.
 
 - **let:src** Image link
 
-### QR
+### `<QR />`
 
 #### Arguments
 
@@ -572,8 +615,9 @@ Triggers on update or remove login.
 - **let:src** Image link
 
 ## Database
+The Database components allow you to create structured collections of documents, query and filter lists of documents, and manage an advanced set of read and write access permissions.
 
-### Collection
+### `<Collection />`
 
 #### Arguments
 
@@ -603,4 +647,171 @@ Triggers on update or remove login.
 
 - **let:documents**
 - **let:error**
+
+### `<Document />`
+
+#### Arguments
+
+- id
+- collection
+- document
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+| `update(data)` | Updates a Document. |
+| `remove()` | Removes a Document. |
+
+- **let:document**
+- **let:error**
+
+## Storage
+The Storage components allow you to manage your project files. You can upload, view, download, and query all your project files.
+
+### `<Storage />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `create(file, read, write)` | Uploads a file. |
+
+- **let:files**
+
+### `<FileList />`
+
+#### Arguments
+
+- search
+- limit
+- offset
+- orderType
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:files**
+- **let:error**
+
+### `<File />`
+
+#### Arguments
+
+- file
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `download()` | Downloads file. |
+| `view(as)` | Get file for View. |
+| `preview(width, height, quality, background, output)` | Get file for preview. |
+| `update(read, write)` | Updates a file. |
+| `delete()` | Deletes a file. |
+
+## Locale
+The Locale components allow you to customize your app based on your users' location.
+
+### `<Continents />`
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:continents**
+
+#### Slots
+
+- **loading**
+- **error**
+
+### `<Countries />`
+
+#### Arguments
+
+- eu
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:countries**
+
+### `<Currencies />`
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:currencies**
+
+### `<Locale />`
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:code**
+
+### `<PhoneCodes />`
+
+#### Slots
+
+- **loading**
+- **error**
+
+#### Directives
+
+**let:actions**
+| Name | Description |
+| --- | --- |
+| `reload()` | Reload. |
+
+- **let:codes**
 
