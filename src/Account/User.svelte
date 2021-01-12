@@ -25,7 +25,7 @@
         actions.reload();
         dispatch("successLogout", response);
       } catch (error) {
-        dispatch("failure", error);
+        dispatch("failureLogout", error);
         throw error;
       }
     },
