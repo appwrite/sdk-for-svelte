@@ -52,6 +52,8 @@ yarn svelte-appwrite
 
 # Usage
 
+> You need a running instance of Appwrite to use this library. Go to https://appwrite.io/docs/installation for more instructions.
+
 **Psuedo Example**
 
 Handle multiple levels of async relational data (and their loading & fallback states) entirely from the Svelte HTML. 
