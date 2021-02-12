@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  create: (url: string) => Promise<object>;
+   *  complete: (user: string, secret: string) => Promise<object>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";
@@ -9,6 +17,7 @@
       try {
         const response = await Appwrite.sdk.account.createVerification(url);
         dispatch("successCreate", response);
+        return response;
       } catch (error) {
         dispatch("failureCreate", error);
         throw error;
@@ -21,6 +30,7 @@
           secret
         );
         dispatch("successComplete", response);
+        return response;
       } catch (error) {
         dispatch("failureComplete", error);
         throw error;

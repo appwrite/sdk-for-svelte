@@ -1,4 +1,10 @@
 <script>
+  /**
+   * @slot {{
+   * authorize: (email: string, password: string) => Promise<object>;
+   * }}
+   * @slot {{ error: object }} error
+   */
   import { createEventDispatcher } from "svelte";
   import Appwrite from "../appwrite";
 

@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  recover: (email: string, url: string) => Promise<void>;
+   *  complete: (user: string, secret: string, password: string, passwordAgain: string) => Promise<void>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";

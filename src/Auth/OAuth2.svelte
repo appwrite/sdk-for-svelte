@@ -1,4 +1,9 @@
 <script>
+  /**
+   * @slot {{
+   * authorize: (provider: string, success: string, failure: string) => Promise<object>;
+   * }}
+   */
   import Appwrite from "../appwrite";
 
   export let provider;

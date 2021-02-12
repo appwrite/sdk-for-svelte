@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * codes: any;
+   * actions: {
+   *  reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   const fetchPhoneCodes = () => Appwrite.sdk.locale.getCountriesPhones();

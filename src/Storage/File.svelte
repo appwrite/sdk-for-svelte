@@ -1,4 +1,15 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  download: () => string;
+   *  view: (as?: string) => string;
+   *  preview: (width?: string, height?: string, quality?: string, background?: string, output?: string) => string;
+   *  update: (read?: any, write?: any) => Promise<object>;
+   *  delete: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
   export let file;
 

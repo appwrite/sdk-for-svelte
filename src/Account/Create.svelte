@@ -1,18 +1,26 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  create: (email: string, password: string, name?: string) => Promise<object>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";
 
   const dispatch = createEventDispatcher();
   const actions = {
-    create: async (email, password, name) => {
+    create: async (email, password, name = "") => {
       try {
         const response = await Appwrite.sdk.account.create(
           email,
           password,
-          name ? name : ""
+          name
         );
         dispatch("success", response);
+        return response;
       } catch (error) {
         dispatch("failure", error);
       }

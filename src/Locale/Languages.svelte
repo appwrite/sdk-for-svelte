@@ -1,7 +1,7 @@
 <script>
   /**
    * @slot {{
-   * currencies: any;
+   * languages: any;
    * actions: {
    *  reload: () => Promise<object>;
    * }}}
@@ -9,19 +9,19 @@
    */
   import Appwrite from "../appwrite";
 
-  const fetchCurrencies = () => Appwrite.sdk.locale.getCurrencies();
+  const fetchLanguages = () => Appwrite.sdk.locale.getLanguages();
 
   const actions = {
-    reload: () => (currencies = fetchCurrencies()),
+    reload: () => (languages = fetchLanguages()),
   };
 
-  let currencies = fetchCurrencies();
+  let languages = fetchLanguages();
 </script>
 
-{#await currencies}
+{#await languages}
   <slot name="loading" />
 {:then response}
-  <slot currencies={response} {actions} />
+  <slot languages={response} {actions} />
 {:catch error}
   <slot name="error" {error} />
 {/await}

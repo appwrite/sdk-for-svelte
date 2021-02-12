@@ -1,4 +1,14 @@
 <script>
+  /**
+   * @slot {{
+   * documents: any;
+   * actions: {
+   *  reload: () => Promise<object>;
+   *  update: (data: any) => Promise<object>;
+   *  remove: () => Promise<object>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import Appwrite from "../appwrite";
 
@@ -16,10 +26,10 @@
     id = document.$id;
   }
 
-  export const actions = {
+  const actions = {
     reload: () => (document = fetchDocument()),
     update: async data => {
-      await Appwrite.sdk.database.updateDocument(
+      const response = await Appwrite.sdk.database.updateDocument(
         document.$collection,
         document.$id,
         data,
@@ -27,13 +37,15 @@
         document.$permissions.write
       );
       dispatch("change");
+      return response;
     },
     remove: async () => {
-      await Appwrite.sdk.database.deleteDocument(
+      const response = await Appwrite.sdk.database.deleteDocument(
         document.$collection,
         document.$id
       );
       dispatch("change");
+      return response;
     },
   };
 </script>

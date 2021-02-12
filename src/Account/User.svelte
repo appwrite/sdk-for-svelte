@@ -1,4 +1,15 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  reload: () => void;
+   *  logout: () => Promise<object>;
+   *  logoutFrom: (session: string) => Promise<object>;
+   *  logoutAll: () => Promise<object>;
+   * }
+   * }}
+   * @slot {{ error: object }} error
+   */
   import { createEventDispatcher } from "svelte";
   import { active, currentUser } from "../stores";
   import Appwrite from "../appwrite";

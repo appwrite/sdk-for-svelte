@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * files: any;
+   * actions: {
+   *   reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   export let search = "";
