@@ -1,4 +1,11 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  create: (file: any, read?: string[], write?: string[]) => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   import { createEventDispatcher } from "svelte";

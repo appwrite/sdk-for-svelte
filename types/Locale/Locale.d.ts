@@ -6,5 +6,14 @@ export interface LocaleProps {}
 export default class Locale extends SvelteComponentTyped<
   LocaleProps,
   {},
-  { default: { code: any; actions: any }; error: { error: any }; loading: {} }
+  {
+    default: {
+      code: any;
+      actions: {
+        reload: () => Promise<object>;
+      };
+    };
+    error: { error: object };
+    loading: {};
+  }
 > {}

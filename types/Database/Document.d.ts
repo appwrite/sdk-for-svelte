@@ -8,5 +8,13 @@ export interface DocumentProps {
 export default class Document extends SvelteComponentTyped<
   DocumentProps,
   { change: CustomEvent<any> },
-  { default: { actions: any } }
+  {
+    default: {
+      documents: any;
+      actions: {
+        update: (data: any) => Promise<object>;
+        remove: () => Promise<object>;
+      };
+    };
+  }
 > {}

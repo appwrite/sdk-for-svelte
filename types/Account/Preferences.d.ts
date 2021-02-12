@@ -6,5 +6,14 @@ export interface PreferencesProps {}
 export default class Preferences extends SvelteComponentTyped<
   PreferencesProps,
   {},
-  { default: { prefs: any; actions: any }; error: { error: any }; loading: {} }
+  {
+    default: {
+      actions: {
+        reload: () => Promise<void>;
+        update: (prefs: object) => Promise<object>;
+      };
+    };
+    error: { error: object };
+    loading: {};
+  }
 > {}

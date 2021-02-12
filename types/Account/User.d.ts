@@ -9,10 +9,22 @@ export default class User extends SvelteComponentTyped<
     success: CustomEvent<any>;
     failure: CustomEvent<any>;
     successLogout: CustomEvent<any>;
+    failureLogout: CustomEvent<any>;
     successLogoutFrom: CustomEvent<any>;
     failureLogoutFrom: CustomEvent<any>;
     successLogoutAll: CustomEvent<any>;
     failureLogoutAll: CustomEvent<any>;
   },
-  { default: { user: any; actions: any }; error: { error: any }; loading: {} }
+  {
+    default: {
+      actions: {
+        reload: () => void;
+        logout: () => Promise<object>;
+        logoutFrom: (session: string) => Promise<object>;
+        logoutAll: () => Promise<object>;
+      };
+    };
+    error: { error: object };
+    loading: {};
+  }
 > {}

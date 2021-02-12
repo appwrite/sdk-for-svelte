@@ -1,7 +1,9 @@
 /// <reference types="svelte" />
 import { SvelteComponentTyped } from "svelte";
 
-export interface FileListProps {
+export interface FunctionProps {
+  id?: undefined;
+
   /**
    * @default ""
    */
@@ -18,19 +20,21 @@ export interface FileListProps {
   offset?: number;
 
   /**
-   * @default "ASC"
+   * @default ""
    */
   orderType?: string;
 }
 
-export default class FileList extends SvelteComponentTyped<
-  FileListProps,
+export default class Function extends SvelteComponentTyped<
+  FunctionProps,
   {},
   {
     default: {
-      files: any;
+      executions: any;
       actions: {
         reload: () => Promise<object>;
+        create: () => Promise<object>;
+        get: (execution: string) => Promise<object>;
       };
     };
     error: { error: object };

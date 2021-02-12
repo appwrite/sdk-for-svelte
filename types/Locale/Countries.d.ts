@@ -12,8 +12,13 @@ export default class Countries extends SvelteComponentTyped<
   CountriesProps,
   {},
   {
-    default: { countries: any; actions: any };
-    error: { error: any };
+    default: {
+      countries: any;
+      actions: {
+        reload: () => Promise<object>;
+      };
+    };
+    error: { error: object };
     loading: {};
   }
 > {}

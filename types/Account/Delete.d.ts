@@ -6,5 +6,11 @@ export interface DeleteProps {}
 export default class Delete extends SvelteComponentTyped<
   DeleteProps,
   {},
-  { default: { actions: any } }
+  {
+    default: {
+      actions: {
+        delete: () => Promise<object>;
+      };
+    };
+  }
 > {}

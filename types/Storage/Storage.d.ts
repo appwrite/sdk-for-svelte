@@ -10,5 +10,16 @@ export default class Storage extends SvelteComponentTyped<
     success: CustomEvent<any>;
     failure: CustomEvent<any>;
   },
-  { default: { actions: any } }
+  {
+    default: {
+      actions: {
+        create: (
+          file: any,
+          read?: string[],
+          write?: string[]
+        ) => Promise<object>;
+      };
+    };
+    error: { error: object };
+  }
 > {}
