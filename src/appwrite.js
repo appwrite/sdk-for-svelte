@@ -1,4 +1,4 @@
-import Appwrite from "appwrite";
+import * as Appwrite from "appwrite";
 
 const SDK = {
   sdk: new Appwrite(),
