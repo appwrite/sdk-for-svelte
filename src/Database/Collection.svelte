@@ -1,4 +1,7 @@
 <script>
+  /**
+   * @slot {{ documents: any; }}
+   */
   import Appwrite from "../appwrite";
   import { currentUser } from "../stores";
 

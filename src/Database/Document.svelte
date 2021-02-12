@@ -5,7 +5,7 @@
   const dispatch = createEventDispatcher();
   export let document;
 
-  export const actions = {
+  const actions = {
     update: async data => {
       await Appwrite.sdk.database.updateDocument(
         document.$collection,

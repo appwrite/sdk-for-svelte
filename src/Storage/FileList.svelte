@@ -1,4 +1,7 @@
 <script>
+  /**
+   * @slot {{ files: any; }}
+   */
   import Appwrite from "../appwrite";
 
   export let search = "";
