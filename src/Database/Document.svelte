@@ -3,6 +3,7 @@
    * @slot {{
    * documents: any;
    * actions: {
+   *  reload: () => Promise<object>;
    *  update: (data: any) => Promise<object>;
    *  remove: () => Promise<object>;
    * }
@@ -25,7 +26,7 @@
     id = document.$id;
   }
 
-  export const actions = {
+  const actions = {
     reload: () => (document = fetchDocument()),
     update: async data => {
       const response = await Appwrite.sdk.database.updateDocument(

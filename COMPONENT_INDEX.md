@@ -239,15 +239,19 @@ None.
 
 ### Props
 
-| Prop name | Kind             | Reactive | Type | Default value | Description |
-| :-------- | :--------------- | :------- | :--- | ------------- | ----------- |
-| document  | <code>let</code> | No       | --   | --            | --          |
+| Prop name  | Kind             | Reactive | Type | Default value | Description |
+| :--------- | :--------------- | :------- | :--- | ------------- | ----------- |
+| document   | <code>let</code> | Yes      | --   | --            | --          |
+| collection | <code>let</code> | Yes      | --   | --            | --          |
+| id         | <code>let</code> | Yes      | --   | --            | --          |
 
 ### Slots
 
-| Slot name | Default | Props                                                                                                                 | Fallback |
-| :-------- | :------ | :-------------------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ documents: any; actions: { update: (data: any) => Promise<object>; remove: () => Promise<object>; } } </code> | --       |
+| Slot name | Default | Props                                                                                                                                                | Fallback |
+| :-------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ documents: any; actions: { reload: () => Promise<object>; update: (data: any) => Promise<object>; remove: () => Promise<object>; } } </code> | --       |
+| error     | No      | <code>{ error: any } </code>                                                                                                                         | --       |
+| loading   | No      | --                                                                                                                                                   | --       |
 
 ### Events
 

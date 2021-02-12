@@ -2,11 +2,11 @@
   "name": "svelte-appwrite",
   "svelte": "src/index.js",
   "license": "BSD-3-Clause",
-  "version": "0.1.0",
+  "version": "0.1.0-beta",
   "scripts": {
     "lint": "eslint src/",
     "prettier": "prettier --write --plugin-search-dir= ./src/**/*.{js,svelte}",
-    "typings": "sveld --json"
+    "typings": "sveld --markdown"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
