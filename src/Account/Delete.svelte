@@ -1,4 +1,11 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  delete: () => Promise<object>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";
@@ -9,6 +16,7 @@
       try {
         const response = await Appwrite.sdk.account.delete();
         dispatch("success", response);
+        return response;
       } catch (error) {
         dispatch("failure", error);
         throw error;

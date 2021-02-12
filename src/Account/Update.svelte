@@ -1,4 +1,13 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  name: (name: string) => Promise<object>;
+   *  email: (email: string, password: string) => Promise<object>;
+   *  password: (password: string, oldPassword: string) => Promise<object>;
+   * }
+   * }}
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";
@@ -9,6 +18,7 @@
       try {
         const response = await Appwrite.sdk.account.updateName(name);
         dispatch("successName", response);
+        return response;
       } catch (error) {
         dispatch("failureName", error);
         throw error;
@@ -21,6 +31,7 @@
           password
         );
         dispatch("successEmail", response);
+        return response;
       } catch (error) {
         dispatch("failureEmail", error);
         throw error;
@@ -33,6 +44,7 @@
           oldPassword
         );
         dispatch("successPassword", response);
+        return response;
       } catch (error) {
         dispatch("failurePassword", error);
         throw error;

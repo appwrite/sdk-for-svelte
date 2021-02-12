@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * countries: any;
+   * actions: {
+   *  reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   export let eu = false;

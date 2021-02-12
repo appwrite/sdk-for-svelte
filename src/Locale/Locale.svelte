@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * code: any;
+   * actions: {
+   *  reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   const fetchUserLocale = () => Appwrite.sdk.locale.get();

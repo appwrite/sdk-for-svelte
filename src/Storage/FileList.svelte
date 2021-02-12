@@ -1,6 +1,11 @@
 <script>
   /**
-   * @slot {{ files: any; }}
+   * @slot {{
+   * files: any;
+   * actions: {
+   *   reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
    */
   import Appwrite from "../appwrite";
 

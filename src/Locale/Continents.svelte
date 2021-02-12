@@ -1,4 +1,12 @@
 <script>
+  /**
+   * @slot {{
+   * continents: any;
+   * actions: {
+   *  reload: () => Promise<object>;
+   * }}}
+   * @slot {{ error: object }} error
+   */
   import Appwrite from "../appwrite";
 
   const fetchContinents = () => Appwrite.sdk.locale.getContinents();

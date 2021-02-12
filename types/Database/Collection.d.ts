@@ -15,7 +15,7 @@ export interface CollectionProps {
   offset?: number;
 
   /**
-   * @default 50
+   * @default 25
    */
   limit?: number;
 
@@ -38,20 +38,24 @@ export interface CollectionProps {
    * @default ""
    */
   search?: string;
-
-  /**
-   * @default 0
-   */
-  first?: number;
-
-  /**
-   * @default 0
-   */
-  last?: number;
 }
 
 export default class Collection extends SvelteComponentTyped<
   CollectionProps,
   {},
-  { default: { documents: any }; error: { error: any }; loading: {} }
+  {
+    default: {
+      documents: any;
+      actions: {
+        reload: () => Promise<object>;
+        create: (
+          data: any,
+          read?: string[],
+          write?: string[]
+        ) => Promise<object>;
+      };
+    };
+    error: { error: object };
+    loading: {};
+  }
 > {}

@@ -1,4 +1,13 @@
 <script>
+  /**
+   * @slot {{
+   * actions: {
+   *  reload: () => Promise<void>;
+   *  update: (prefs: object) => Promise<object>;
+   * }
+   * }}
+   * @slot {{ error: object }} error
+   */
   import { createEventDispatcher } from "svelte";
   import { active } from "../stores";
   import Appwrite from "../appwrite";
@@ -20,6 +29,7 @@
       try {
         const response = await Appwrite.sdk.account.updatePrefs(prefs);
         dispatch("successUpdate", response);
+        return response;
       } catch (error) {
         dispatch("failureUpdate", error);
         throw error;

@@ -12,5 +12,13 @@ export interface AuthOAuth2Props {
 export default class AuthOAuth2 extends SvelteComponentTyped<
   AuthOAuth2Props,
   {},
-  { default: { authorize: any } }
+  {
+    default: {
+      authorize: (
+        provider: string,
+        success: string,
+        failure: string
+      ) => Promise<object>;
+    };
+  }
 > {}

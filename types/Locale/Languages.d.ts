@@ -1,14 +1,14 @@
 /// <reference types="svelte" />
 import { SvelteComponentTyped } from "svelte";
 
-export interface ContinentsProps {}
+export interface LanguagesProps {}
 
-export default class Continents extends SvelteComponentTyped<
-  ContinentsProps,
+export default class Languages extends SvelteComponentTyped<
+  LanguagesProps,
   {},
   {
     default: {
-      continents: any;
+      languages: any;
       actions: {
         reload: () => Promise<object>;
       };
