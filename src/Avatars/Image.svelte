@@ -1,5 +1,5 @@
 <script>
-  import Appwrite from "../appwrite";
+  import { SDK as Appwrite }  from "../appwrite";
 
   export let url;
   export let width = "";

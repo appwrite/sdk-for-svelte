@@ -10,7 +10,7 @@
    * }}
    */
   import { createEventDispatcher } from "svelte";
-  import Appwrite from "../appwrite";
+  import { SDK as Appwrite }  from "../appwrite";
 
   const dispatch = createEventDispatcher();
   export let id;

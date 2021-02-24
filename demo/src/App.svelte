@@ -10,7 +10,7 @@
   import Gallery from "./Gallery.svelte";
   import Login from "./Login.svelte";
   import TodoList from "./TodoList.svelte";
-
+  
   const config = {
     endpoint: "http://localhost/v1",
     project: "5ffc6c043586d",

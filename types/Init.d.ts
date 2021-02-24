@@ -2,9 +2,9 @@
 import { SvelteComponentTyped } from "svelte";
 
 export interface AppwriteProps {
-  endpoint?: undefined;
+  endpoint?: string;
 
-  project?: undefined;
+  project?: string;
 
   /**
    * @default "en"

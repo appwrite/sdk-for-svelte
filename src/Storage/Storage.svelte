@@ -6,7 +6,7 @@
    * }}}
    * @slot {{ error: object }} error
    */
-  import Appwrite from "../appwrite";
+  import { SDK as Appwrite }  from "../appwrite";
 
   import { createEventDispatcher } from "svelte";
   import { currentUser } from "../stores";
