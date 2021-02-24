@@ -37,8 +37,8 @@
 
 | Prop name | Kind             | Reactive | Type                | Default value     | Description |
 | :-------- | :--------------- | :------- | :------------------ | ----------------- | ----------- |
-| endpoint  | <code>let</code> | No       | --                  | --                | --          |
-| project   | <code>let</code> | No       | --                  | --                | --          |
+| endpoint  | <code>let</code> | No       | <code>string</code> | --                | --          |
+| project   | <code>let</code> | No       | <code>string</code> | --                | --          |
 | locale    | <code>let</code> | No       | <code>string</code> | <code>"en"</code> | --          |
 
 ### Slots

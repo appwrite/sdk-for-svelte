@@ -9,7 +9,7 @@
    * }}
    * @slot {{ error: object }} error
    */
-  import Appwrite from "../appwrite";
+  import { SDK as Appwrite }  from "../appwrite";
   import { currentUser } from "../stores";
 
   export let id;
