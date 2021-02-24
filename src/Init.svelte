@@ -1,9 +1,11 @@
 <script>
   import { onMount } from "svelte";
   import { active } from "./stores";
-  import Appwrite from "./appwrite";
+  import { SDK as Appwrite } from "./appwrite";
 
+  /** @type {string} */
   export let endpoint;
+  /** @type {string} */
   export let project;
   export let locale = "en";
 

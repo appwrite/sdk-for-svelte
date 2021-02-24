@@ -12,7 +12,7 @@
    */
   import { createEventDispatcher } from "svelte";
   import { active, currentUser } from "../stores";
-  import Appwrite from "../appwrite";
+  import { SDK as Appwrite }  from "../appwrite";
 
   const dispatch = createEventDispatcher();
 

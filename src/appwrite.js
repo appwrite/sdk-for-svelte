@@ -1,6 +1,6 @@
-import * as Appwrite from "appwrite";
+import Appwrite from "appwrite";
 
-const SDK = {
+export const SDK = {
   sdk: new Appwrite(),
   setConfig: config => {
     SDK.sdk
@@ -9,5 +9,3 @@ const SDK = {
       .setLocale(config.locale);
   },
 };
-
-export default SDK;
