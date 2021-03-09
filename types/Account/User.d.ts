@@ -17,6 +17,7 @@ export default class User extends SvelteComponentTyped<
   },
   {
     default: {
+      user: any,
       actions: {
         reload: () => void;
         logout: () => Promise<object>;

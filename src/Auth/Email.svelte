@@ -7,6 +7,7 @@
    */
   import { createEventDispatcher } from "svelte";
   import { SDK as Appwrite }  from "../appwrite";
+  import { currentUser } from "../stores";
 
   const dispatch = createEventDispatcher();
   const authorize = (email, password) => {
@@ -17,6 +18,8 @@
           password
         );
         dispatch("success", response);
+        // Get user in the background, causing all <User> components to re-render once the user data is loaded.
+        currentUser.reload(); 
         return response;
       } catch (error) {
         dispatch("failure", error);

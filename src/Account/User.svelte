@@ -1,6 +1,7 @@
 <script>
   /**
    * @slot {{
+   * user: any;
    * actions: {
    *  reload: () => void;
    *  logout: () => Promise<object>;
@@ -18,10 +19,9 @@
 
   const fetchUser = async () => {
     try {
-      const response = await Appwrite.sdk.account.get();
-      $currentUser = response;
+      await currentUser.reload();
       dispatch("success", $currentUser);
-      return response;
+      return $currentUser;
     } catch (error) {
       dispatch("failure", error);
       throw error;
@@ -32,7 +32,7 @@
     reload: () => (request = fetchUser()),
     logout: async () => {
       try {
-        const response = await Appwrite.sdk.account.deleteSession("current");
+        const response = await currentUser.logout();
         actions.reload();
         dispatch("successLogout", response);
       } catch (error) {
@@ -66,11 +66,13 @@
 </script>
 
 {#if $active}
-  {#await request}
-    <slot name="loading" />
-  {:then user}
-    <slot {user} {actions} />
-  {:catch error}
-    <slot name="error" {error} />
-  {/await}
+  {#if $currentUser}
+    <slot user={$currentUser} {actions} />
+  {:else}
+    {#await request}
+      <slot name="loading" />      
+    {:catch error}
+      <slot name="error" {error} />
+    {/await}
+  {/if}
 {/if}
