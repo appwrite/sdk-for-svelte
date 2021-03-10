@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
-import { userStore } from "./stores/user";
+import { UserStore } from "./Stores/user";
 
 export const active = writable(false);
-
-export const currentUser = userStore(false);
+export const currentUser = new UserStore();

@@ -28,7 +28,7 @@ export default class FileList extends SvelteComponentTyped<
   {},
   {
     default: {
-      files: any;
+      files: any[];
       actions: {
         reload: () => Promise<object>;
       };

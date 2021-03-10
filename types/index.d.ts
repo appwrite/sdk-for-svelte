@@ -1,4 +1,5 @@
 export { default as Appwrite } from "./Init";
+export { default as SDK } from "./appwrite";
 export { default as User } from "./Account/User";
 export { default as Create } from "./Account/Create";
 export { default as Delete } from "./Account/Delete";

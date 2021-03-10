@@ -1,6 +1,7 @@
 <script>
   /**
    * @slot {{
+   * file: any;
    * actions: {
    *  download: () => string;
    *  view: (as?: string) => string;

@@ -10,6 +10,7 @@ export default class File extends SvelteComponentTyped<
   {},
   {
     default: {
+      file: any;
       actions: {
         download: () => string;
         view: (as?: string) => string;

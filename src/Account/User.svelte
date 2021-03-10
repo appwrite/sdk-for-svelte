@@ -1,7 +1,19 @@
 <script>
   /**
+   * @typedef {{
+   * $id: string, 
+   * email: string, 
+   * emailVerification: boolean, 
+   * name: string, 
+   * registration: number, 
+   * status: number, 
+   * prefs: object 
+   * }} AppwriteUser
+   */
+
+  /**
    * @slot {{
-   * user: any;
+   * user: AppwriteUser;
    * actions: {
    *  reload: () => void;
    *  logout: () => Promise<object>;

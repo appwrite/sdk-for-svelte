@@ -2,11 +2,11 @@
 import { SvelteComponentTyped } from "svelte";
 
 export interface DocumentProps {
-  id?: undefined;
+  id?: string;
 
-  collection?: undefined;
+  collection?: string;
 
-  document?: undefined;
+  document?: any;
 }
 
 export default class Document extends SvelteComponentTyped<
@@ -14,7 +14,7 @@ export default class Document extends SvelteComponentTyped<
   { change: CustomEvent<any> },
   {
     default: {
-      documents: any;
+      document: any;
       actions: {
         reload: () => Promise<object>;
         update: (data: any) => Promise<object>;
