@@ -15,17 +15,17 @@ export class UserStore {
    */
   async reload() {
     const response = await Appwrite.sdk.account.get();
-    set(response);
+    this.set(response);
     return response;
   }
 
   /**
-   *  Logout the current User.
+   * Logout the current User.
    * @returns {object}
    */
   async logout() {
     const response = await Appwrite.sdk.account.deleteSession("current");
-    set(false);
+    this.set(null);
     return response;
   }
 }
