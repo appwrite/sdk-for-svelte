@@ -7,6 +7,8 @@ export interface DocumentProps {
   collection?: string;
 
   document?: any;
+
+  cache?: boolean;
 }
 
 export default class Document extends SvelteComponentTyped<

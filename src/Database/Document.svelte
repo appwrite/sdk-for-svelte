@@ -9,7 +9,10 @@
    * }
    * }}
    */
+  import { getContext } from 'svelte';
+  import { cacheKey } from '../keys';
   import { createEventDispatcher } from "svelte";
+  import { documents } from '../stores';
   import { SDK as Appwrite }  from "../appwrite";
 
   const dispatch = createEventDispatcher();
@@ -31,7 +34,17 @@
    */
   export let document;
 
-  const fetchDocument = () => Appwrite.sdk.database.getDocument(collection, id);
+  /** 
+   * @description Enables document caching. Call `actions.reload()` to get fresh document(s)
+   * @type {boolean}
+   */
+  export let cache = getContext(cacheKey) ?? false;
+
+  const fetchDocument = async () => {
+    const response = await documents.fetchDocument(collection, id, cache)
+    document = response;
+    return response;
+  }
 
   if (id && collection && !document) {
     document = fetchDocument();
@@ -41,7 +54,10 @@
   }
 
   const actions = {
-    reload: () => (document = fetchDocument()),
+    reload: () => {
+      documents.clear();
+      document = fetchDocument()
+    },
     update: async data => {
       const response = await Appwrite.sdk.database.updateDocument(
         document.$collection,
@@ -50,6 +66,7 @@
         document.$permissions.read,
         document.$permissions.write
       );
+      actions.reload();
       dispatch("change");
       return response;
     },
@@ -58,6 +75,7 @@
         document.$collection,
         document.$id
       );
+      actions.reload();
       dispatch("change");
       return response;
     },

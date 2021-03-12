@@ -7,7 +7,7 @@ export interface CollectionProps {
   /**
    * @default []
    */
-  filters?: [];
+  filters?: string[];
 
   /**
    * @default 0
@@ -20,24 +20,29 @@ export interface CollectionProps {
   limit?: number;
 
   /**
-   * @default ""
+   * @default ''
    */
   orderField?: string;
 
   /**
-   * @default ""
+   * @default ''
    */
   orderType?: string;
 
   /**
-   * @default "string"
+   * @default 'string'
    */
   orderCast?: string;
 
   /**
-   * @default ""
+   * @default ''
    */
   search?: string;
+
+  /**
+   * @default false
+   */
+  cache?: boolean;
 }
 
 export default class Collection extends SvelteComponentTyped<
@@ -45,7 +50,6 @@ export default class Collection extends SvelteComponentTyped<
   {},
   {
     default: {
-      id: string;
       documents: any[];
       actions: {
         reload: () => Promise<object>;
