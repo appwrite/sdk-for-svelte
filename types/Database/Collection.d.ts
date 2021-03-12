@@ -2,7 +2,7 @@
 import { SvelteComponentTyped } from "svelte";
 
 export interface CollectionProps {
-  id?: undefined;
+  id?: string;
 
   /**
    * @default []
@@ -45,7 +45,8 @@ export default class Collection extends SvelteComponentTyped<
   {},
   {
     default: {
-      documents: any;
+      id: string;
+      documents: any[];
       actions: {
         reload: () => Promise<object>;
         create: (

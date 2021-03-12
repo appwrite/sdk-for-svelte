@@ -1,7 +1,7 @@
-<script>
+<script>  
   /**
    * @slot {{
-   * documents: any;
+   * document: any;
    * actions: {
    *  reload: () => Promise<object>;
    *  update: (data: any) => Promise<object>;
@@ -13,8 +13,22 @@
   import { SDK as Appwrite }  from "../appwrite";
 
   const dispatch = createEventDispatcher();
+  /**
+   * @name Document ID
+   * @type {string}
+   */
   export let id;
+
+  /**
+   * @name Collection ID
+   * @type {string}
+   */
   export let collection;
+
+  /**
+   * @name Document Object
+   * @type {any}
+   */
   export let document;
 
   const fetchDocument = () => Appwrite.sdk.database.getDocument(collection, id);

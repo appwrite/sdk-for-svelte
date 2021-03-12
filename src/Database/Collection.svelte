@@ -1,7 +1,8 @@
 <script>
   /**
    * @slot {{
-   * documents: any;
+   * id: string;
+   * documents: any[];
    * actions: {
    *  reload: () => Promise<object>;
    *  create: (data: any, read?: string[], write?: string[]) => Promise<object>;
@@ -12,6 +13,11 @@
   import { SDK as Appwrite }  from "../appwrite";
   import { currentUser } from "../stores";
 
+  
+  /**
+   * @name Collection ID
+   * @type {string}
+   */
   export let id;
   export let filters = [];
   export let offset = 0;
@@ -25,8 +31,8 @@
     Appwrite.sdk.database.listDocuments(
       id,
       filters,
-      offset,
       limit,
+      offset,
       orderField,
       orderType,
       orderCast,

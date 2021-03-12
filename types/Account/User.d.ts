@@ -1,6 +1,16 @@
 /// <reference types="svelte" />
 import { SvelteComponentTyped } from "svelte";
 
+export interface AppwriteUser {
+  $id: string;
+  email: string;
+  emailVerification: boolean;
+  name: string;
+  registration: number;
+  status: number;
+  prefs: object;
+}
+
 export interface UserProps {}
 
 export default class User extends SvelteComponentTyped<
@@ -17,7 +27,7 @@ export default class User extends SvelteComponentTyped<
   },
   {
     default: {
-      user: any,
+      user: AppwriteUser;
       actions: {
         reload: () => void;
         logout: () => Promise<object>;

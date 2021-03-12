@@ -1,7 +1,7 @@
 <script>
   /**
    * @slot {{
-   * files: any;
+   * files: any[];
    * actions: {
    *   reload: () => Promise<object>;
    * }}}

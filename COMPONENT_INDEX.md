@@ -120,7 +120,7 @@ None.
 
 | Prop name  | Kind             | Reactive | Type                | Default value         | Description |
 | :--------- | :--------------- | :------- | :------------------ | --------------------- | ----------- |
-| id         | <code>let</code> | No       | --                  | --                    | --          |
+| id         | <code>let</code> | No       | <code>string</code> | --                    | --          |
 | filters    | <code>let</code> | No       | <code>[]</code>     | <code>[]</code>       | --          |
 | offset     | <code>let</code> | No       | <code>number</code> | <code>0</code>        | --          |
 | limit      | <code>let</code> | No       | <code>number</code> | <code>25</code>       | --          |
@@ -131,11 +131,11 @@ None.
 
 ### Slots
 
-| Slot name | Default | Props                                                                                                                                                    | Fallback |
-| :-------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ documents: any; actions: { reload: () => Promise<object>; create: (data: any, read?: string[], write?: string[]) => Promise<object>; } } </code> | --       |
-| error     | No      | <code>{ error: object } </code>                                                                                                                          | --       |
-| loading   | No      | --                                                                                                                                                       | --       |
+| Slot name | Default | Props                                                                                                                                                                  | Fallback |
+| :-------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ id: string; documents: any[]; actions: { reload: () => Promise<object>; create: (data: any, read?: string[], write?: string[]) => Promise<object>; } } </code> | --       |
+| error     | No      | <code>{ error: object } </code>                                                                                                                                        | --       |
+| loading   | No      | --                                                                                                                                                                     | --       |
 
 ### Events
 
@@ -239,19 +239,19 @@ None.
 
 ### Props
 
-| Prop name  | Kind             | Reactive | Type | Default value | Description |
-| :--------- | :--------------- | :------- | :--- | ------------- | ----------- |
-| document   | <code>let</code> | Yes      | --   | --            | --          |
-| collection | <code>let</code> | Yes      | --   | --            | --          |
-| id         | <code>let</code> | Yes      | --   | --            | --          |
+| Prop name  | Kind             | Reactive | Type                | Default value | Description |
+| :--------- | :--------------- | :------- | :------------------ | ------------- | ----------- |
+| document   | <code>let</code> | Yes      | <code>any</code>    | --            | --          |
+| collection | <code>let</code> | Yes      | <code>string</code> | --            | --          |
+| id         | <code>let</code> | Yes      | <code>string</code> | --            | --          |
 
 ### Slots
 
-| Slot name | Default | Props                                                                                                                                                | Fallback |
-| :-------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ documents: any; actions: { reload: () => Promise<object>; update: (data: any) => Promise<object>; remove: () => Promise<object>; } } </code> | --       |
-| error     | No      | <code>{ error: any } </code>                                                                                                                         | --       |
-| loading   | No      | --                                                                                                                                                   | --       |
+| Slot name | Default | Props                                                                                                                                               | Fallback |
+| :-------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ document: any; actions: { reload: () => Promise<object>; update: (data: any) => Promise<object>; remove: () => Promise<object>; } } </code> | --       |
+| error     | No      | <code>{ error: any } </code>                                                                                                                        | --       |
+| loading   | No      | --                                                                                                                                                  | --       |
 
 ### Events
 
@@ -287,10 +287,10 @@ None.
 
 ### Slots
 
-| Slot name | Default | Props                                                                                                                                                                                                                                                                                   | Fallback |
-| :-------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ actions: { download: () => string; view: (as?: string) => string; preview: (width?: string, height?: string, quality?: string, background?: string, output?: string) => string; update: (read?: any, write?: any) => Promise<object>; delete: () => Promise<object>; }} </code> | --       |
-| error     | No      | <code>{ error: object } </code>                                                                                                                                                                                                                                                         | --       |
+| Slot name | Default | Props                                                                                                                                                                                                                                                                                              | Fallback |
+| :-------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ file: any; actions: { download: () => string; view: (as?: string) => string; preview: (width?: string, height?: string, quality?: string, background?: string, output?: string) => string; update: (read?: any, write?: any) => Promise<object>; delete: () => Promise<object>; }} </code> | --       |
+| error     | No      | <code>{ error: object } </code>                                                                                                                                                                                                                                                                    | --       |
 
 ### Events
 
@@ -309,11 +309,11 @@ None.
 
 ### Slots
 
-| Slot name | Default | Props                                                                    | Fallback |
-| :-------- | :------ | :----------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ files: any; actions: { reload: () => Promise<object>; }} </code> | --       |
-| error     | No      | <code>{ error: object } </code>                                          | --       |
-| loading   | No      | --                                                                       | --       |
+| Slot name | Default | Props                                                                      | Fallback |
+| :-------- | :------ | :------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ files: any[]; actions: { reload: () => Promise<object>; }} </code> | --       |
+| error     | No      | <code>{ error: object } </code>                                            | --       |
+| loading   | No      | --                                                                         | --       |
 
 ### Events
 
@@ -514,17 +514,31 @@ None.
 
 ## `User`
 
+### Types
+
+```ts
+export interface AppwriteUser {
+  $id: string;
+  email: string;
+  emailVerification: boolean;
+  name: string;
+  registration: number;
+  status: number;
+  prefs: object;
+}
+```
+
 ### Props
 
 None.
 
 ### Slots
 
-| Slot name | Default | Props                                                                                                                                                                 | Fallback |
-| :-------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ actions: { reload: () => void; logout: () => Promise<object>; logoutFrom: (session: string) => Promise<object>; logoutAll: () => Promise<object>; } } </code> | --       |
-| error     | No      | <code>{ error: object } </code>                                                                                                                                       | --       |
-| loading   | No      | --                                                                                                                                                                    | --       |
+| Slot name | Default | Props                                                                                                                                                                                     | Fallback |
+| :-------- | :------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| --        | Yes     | <code>{ user: AppwriteUser; actions: { reload: () => void; logout: () => Promise<object>; logoutFrom: (session: string) => Promise<object>; logoutAll: () => Promise<object>; } } </code> | --       |
+| error     | No      | <code>{ error: object } </code>                                                                                                                                                           | --       |
+| loading   | No      | --                                                                                                                                                                                        | --       |
 
 ### Events
 
