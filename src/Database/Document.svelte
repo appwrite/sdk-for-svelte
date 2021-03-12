@@ -41,8 +41,10 @@
   export let cache = getContext(cacheKey) ?? false;
 
   const fetchDocument = async () => {
-    return await documents.fetchDocument(collection, id, cache);
-  };
+    const response = await documents.fetchDocument(collection, id, cache)
+    document = response;
+    return response;
+  }
 
   if (id && collection && !document) {
     document = fetchDocument();

@@ -70,7 +70,7 @@ export class DocumentsStore {
       if (docs.has(key)) return docs.get(key);
     }
 
-    const response = Appwrite.sdk.database.getDocument(collection, id)
+    const response = await Appwrite.sdk.database.getDocument(collection, id)
 
     if (cache) {
       this.update(docs => {
