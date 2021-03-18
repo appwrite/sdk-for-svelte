@@ -1,5 +1,5 @@
 <script>
-  import { SDK as Appwrite }  from "../appwrite";
+  import { SDK as Appwrite } from "../appwrite";
 
   export let text;
   export let size = 400;

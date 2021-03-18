@@ -1,4 +1,4 @@
-<script>  
+<script>
   /**
    * @slot {{
    * document: any;
@@ -9,11 +9,11 @@
    * }
    * }}
    */
-  import { getContext } from 'svelte';
-  import { cacheKey } from '../keys';
+  import { getContext } from "svelte";
+  import { cacheKey } from "../keys";
   import { createEventDispatcher } from "svelte";
-  import { documents } from '../stores';
-  import { SDK as Appwrite }  from "../appwrite";
+  import { documents } from "../stores";
+  import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher();
   /**
@@ -34,17 +34,17 @@
    */
   export let document;
 
-  /** 
+  /**
    * @description Enables document caching. Call `actions.reload()` to get fresh document(s)
    * @type {boolean}
    */
   export let cache = getContext(cacheKey) ?? false;
 
   const fetchDocument = async () => {
-    const response = await documents.fetchDocument(collection, id, cache)
+    const response = await documents.fetchDocument(collection, id, cache);
     document = response;
     return response;
-  }
+  };
 
   if (id && collection && !document) {
     document = fetchDocument();
@@ -56,7 +56,7 @@
   const actions = {
     reload: () => {
       documents.clear();
-      document = fetchDocument()
+      document = fetchDocument();
     },
     update: async data => {
       const response = await Appwrite.sdk.database.updateDocument(
