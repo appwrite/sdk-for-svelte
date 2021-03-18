@@ -11,7 +11,7 @@
 
   const fetchUserLocale = () => Appwrite.sdk.locale.get();
 
-  const actions = {
+  export const actions = {
     reload: () => (locale = fetchUserLocale()),
   };
 

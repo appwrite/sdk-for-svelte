@@ -10,7 +10,7 @@
   export let success;
   export let failure;
 
-  const authorize = () =>
+  export const authorize = () =>
     Appwrite.sdk.account.createOAuth2Session(provider, success, failure);
 </script>
 

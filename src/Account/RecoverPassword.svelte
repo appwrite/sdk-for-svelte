@@ -12,7 +12,7 @@
   import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher;
-  const actions = {
+  export const actions = {
     recover: async (email, url) => {
       try {
         const response = await Appwrite.sdk.account.createRecovery(email, url);

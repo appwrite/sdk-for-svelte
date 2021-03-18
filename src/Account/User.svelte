@@ -40,7 +40,7 @@
     }
   };
 
-  const actions = {
+  export const actions = {
     reload: () => (request = fetchUser()),
     logout: async () => {
       try {

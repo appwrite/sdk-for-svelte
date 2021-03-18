@@ -10,7 +10,7 @@
   import { currentUser } from "../stores";
 
   const dispatch = createEventDispatcher();
-  const authorize = (email, password) => {
+  export const authorize = (email, password) => {
     request = async () => {
       try {
         const response = await Appwrite.sdk.account.createSession(

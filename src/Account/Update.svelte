@@ -13,7 +13,7 @@
   import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher;
-  const actions = {
+  export const actions = {
     name: async name => {
       try {
         const response = await Appwrite.sdk.account.updateName(name);

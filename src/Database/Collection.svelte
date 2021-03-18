@@ -49,7 +49,7 @@
     });
   };
 
-  const actions = {
+  export const actions = {
     reload: () => {
       documents.clear();
       getDocuments = fetchDocuments();

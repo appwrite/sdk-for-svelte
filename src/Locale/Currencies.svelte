@@ -11,7 +11,7 @@
 
   const fetchCurrencies = () => Appwrite.sdk.locale.getCurrencies();
 
-  const actions = {
+  export const actions = {
     reload: () => (currencies = fetchCurrencies()),
   };
 
