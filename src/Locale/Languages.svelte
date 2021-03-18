@@ -7,7 +7,7 @@
    * }}}
    * @slot {{ error: object }} error
    */
-  import { SDK as Appwrite }  from "../appwrite";
+  import { SDK as Appwrite } from "../appwrite";
 
   const fetchLanguages = () => Appwrite.sdk.locale.getLanguages();
 

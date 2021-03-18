@@ -1,13 +1,13 @@
 <script>
   /**
    * @typedef {{
-   * $id: string, 
-   * email: string, 
-   * emailVerification: boolean, 
-   * name: string, 
-   * registration: number, 
-   * status: number, 
-   * prefs: object 
+   * $id: string,
+   * email: string,
+   * emailVerification: boolean,
+   * name: string,
+   * registration: number,
+   * status: number,
+   * prefs: object
    * }} AppwriteUser
    */
 
@@ -25,7 +25,7 @@
    */
   import { createEventDispatcher } from "svelte";
   import { active, currentUser } from "../stores";
-  import { SDK as Appwrite }  from "../appwrite";
+  import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher();
 
@@ -82,7 +82,7 @@
     <slot user={$currentUser} {actions} />
   {:else}
     {#await request}
-      <slot name="loading" />      
+      <slot name="loading" />
     {:catch error}
       <slot name="error" {error} />
     {/await}
