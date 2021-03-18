@@ -20,7 +20,7 @@
   const fetchExecutions = () =>
     Appwrite.sdk.functions.listExecutions(id, search, limit, offset, orderType);
 
-  export const actions = {
+  const actions = {
     reload: () => (documents = fetchExecutions()),
     create: async () => {
       const response = await Appwrite.sdk.functions.createExecution(id);

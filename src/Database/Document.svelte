@@ -53,7 +53,7 @@
     id = document.$id;
   }
 
-  export const actions = {
+  const actions = {
     reload: () => {
       documents.clear();
       document = fetchDocument();

@@ -12,7 +12,7 @@
   import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher;
-  export const actions = {
+  const actions = {
     create: async url => {
       try {
         const response = await Appwrite.sdk.account.createVerification(url);

@@ -11,7 +11,7 @@
 
   const fetchContinents = () => Appwrite.sdk.locale.getContinents();
 
-  export const actions = {
+  const actions = {
     reload: () => (continents = fetchContinents()),
   };
 

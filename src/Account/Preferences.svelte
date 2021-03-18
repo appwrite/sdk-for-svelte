@@ -23,7 +23,7 @@
     }
   };
 
-  export const actions = {
+  const actions = {
     reload: () => (request = fetchPreferences()),
     update: async prefs => {
       try {

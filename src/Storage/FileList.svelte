@@ -13,7 +13,7 @@
   export let limit = 25;
   export let offset = 0;
   export let orderType = "ASC";
-  export const actions = {
+  const actions = {
     reload: () => (files = fetchFiles()),
   };
   const fetchFiles = () =>

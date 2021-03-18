@@ -13,7 +13,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export const actions = {
+  const actions = {
     create: async (
       file,
       read = [`user:${$currentUser.$id}`],

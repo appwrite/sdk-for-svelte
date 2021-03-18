@@ -11,7 +11,7 @@
 
   const fetchPhoneCodes = () => Appwrite.sdk.locale.getCountriesPhones();
 
-  export const actions = {
+  const actions = {
     reload: () => (phoneCodes = fetchPhoneCodes()),
   };
 

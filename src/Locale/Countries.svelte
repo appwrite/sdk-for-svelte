@@ -15,7 +15,7 @@
     ? () => Appwrite.sdk.locale.getCountriesEU()
     : () => Appwrite.sdk.locale.getCountries();
 
-  export const actions = {
+  const actions = {
     reload: () => (countries = fetchCountries()),
   };
 

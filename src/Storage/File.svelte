@@ -14,7 +14,7 @@
   import { SDK as Appwrite } from "../appwrite";
 
   export let file;
-  export const actions = {
+  const actions = {
     download: () => Appwrite.sdk.storage.getFileDownload(file.$id),
     view: (as = "") => Appwrite.sdk.storage.getFileView(file.$id, as),
     preview: (

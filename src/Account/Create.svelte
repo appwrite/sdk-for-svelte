@@ -11,7 +11,7 @@
   import { SDK as Appwrite } from "../appwrite";
 
   const dispatch = createEventDispatcher();
-  export const actions = {
+  const actions = {
     create: async (email, password, name = "") => {
       try {
         const response = await Appwrite.sdk.account.create(
