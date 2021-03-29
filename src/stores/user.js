@@ -1,4 +1,4 @@
-import { SDK as Appwrite }  from "../appwrite";
+import { SDK as Appwrite } from "../appwrite";
 import { writable } from "svelte/store";
 
 export class UserStore {
@@ -29,4 +29,3 @@ export class UserStore {
     return response;
   }
 }
-

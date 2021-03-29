@@ -7,19 +7,17 @@
    * }}}
    * @slot {{ error: object }} error
    */
-  import { SDK as Appwrite }  from "../appwrite";
+  import { SDK as Appwrite } from "../appwrite";
 
   export let search = "";
   export let limit = 25;
   export let offset = 0;
   export let orderType = "ASC";
-
-  const fetchFiles = () =>
-    Appwrite.sdk.storage.listFiles(search, limit, offset, orderType);
-
   const actions = {
     reload: () => (files = fetchFiles()),
   };
+  const fetchFiles = () =>
+    Appwrite.sdk.storage.listFiles(search, limit, offset, orderType);
 
   let files = fetchFiles();
 </script>

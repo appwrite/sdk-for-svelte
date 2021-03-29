@@ -9,9 +9,9 @@
    * }}
    * @slot {{ error: object }} error
    */
-  import { setContext } from 'svelte';
-  import { cacheKey } from '../keys';
-  import { SDK as Appwrite }  from "../appwrite";
+  import { setContext } from "svelte";
+  import { cacheKey } from "../keys";
+  import { SDK as Appwrite } from "../appwrite";
   import { currentUser, documents } from "../stores";
 
   /**
@@ -25,10 +25,10 @@
 
   export let offset = 0;
   export let limit = 25;
-  export let orderField = '';
-  export let orderType = '';
-  export let orderCast = 'string';
-  export let search = '';
+  export let orderField = "";
+  export let orderType = "";
+  export let orderCast = "string";
+  export let search = "";
 
   /**
    * @description Enables document caching. Call `actions.reload()` to get fresh document(s)
@@ -46,20 +46,31 @@
       orderType,
       orderCast,
       search,
-    })
+    });
   };
 
   const actions = {
     reload: () => {
-      documents.clear()
-      getDocuments = fetchDocuments()
+      documents.clear();
+      getDocuments = fetchDocuments();
     },
     create: async (
       data,
       read = [`user:${$currentUser.$id}`],
-      write = [`user:${$currentUser.$id}`]
+      write = [`user:${$currentUser.$id}`],
+      parentDocument = "",
+      parentProperty = "",
+      parentPropertyType = "assign"
     ) => {
-      const response = await Appwrite.sdk.database.createDocument(id, data, read, write);
+      const response = await Appwrite.sdk.database.createDocument(
+        id,
+        data,
+        read,
+        write,
+        parentDocument,
+        parentProperty,
+        parentPropertyType
+      );
       actions.reload();
       return response;
     },
@@ -67,6 +78,7 @@
 
   let getDocuments = fetchDocuments();
 </script>
+
 {#await getDocuments}
   <slot name="loading" />
 {:then current}

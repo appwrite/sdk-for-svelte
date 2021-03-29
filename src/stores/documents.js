@@ -1,4 +1,4 @@
-import { SDK as Appwrite }  from "../appwrite";
+import { SDK as Appwrite } from "../appwrite";
 import { writable, get } from "svelte/store";
 
 export class DocumentsStore {
@@ -22,16 +22,15 @@ export class DocumentsStore {
    */
   async fetchDocuments(id, cache, query) {
     if (cache) {
-      const docs = Array
-        .from(get(this).entries())
+      const docs = Array.from(get(this).entries())
         .filter(entry => entry[0].startsWith(id))
-        .map(entry => entry[1])
+        .map(entry => entry[1]);
 
       if (docs?.length) {
         return {
           documents: docs,
-          sum: docs.length
-        }
+          sum: docs.length,
+        };
       }
     }
 
@@ -43,8 +42,8 @@ export class DocumentsStore {
       query.orderField,
       query.orderType,
       query.orderCast,
-      query.search,
-    )
+      query.search
+    );
 
     if (cache) {
       this.update(docs => {
@@ -52,7 +51,7 @@ export class DocumentsStore {
           docs.set(`${id}:${document.$id}`, document);
         }
         return docs;
-      })
+      });
     }
     return response;
   }
@@ -70,7 +69,7 @@ export class DocumentsStore {
       if (docs.has(key)) return docs.get(key);
     }
 
-    const response = await Appwrite.sdk.database.getDocument(collection, id)
+    const response = await Appwrite.sdk.database.getDocument(collection, id);
 
     if (cache) {
       this.update(docs => {
@@ -78,8 +77,7 @@ export class DocumentsStore {
         return docs;
       });
     }
-  
+
     return response;
   }
 }
-

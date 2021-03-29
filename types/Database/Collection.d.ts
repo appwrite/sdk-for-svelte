@@ -20,22 +20,22 @@ export interface CollectionProps {
   limit?: number;
 
   /**
-   * @default ''
+   * @default ""
    */
   orderField?: string;
 
   /**
-   * @default ''
+   * @default ""
    */
   orderType?: string;
 
   /**
-   * @default 'string'
+   * @default "string"
    */
   orderCast?: string;
 
   /**
-   * @default ''
+   * @default ""
    */
   search?: string;
 
