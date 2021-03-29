@@ -4,7 +4,7 @@
    * authorize: (provider: string, success: string, failure: string) => Promise<object>;
    * }}
    */
-  import { SDK as Appwrite }  from "../appwrite";
+  import { SDK as Appwrite } from "../appwrite";
 
   export let provider;
   export let success;

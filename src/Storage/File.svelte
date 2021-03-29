@@ -11,9 +11,9 @@
    * }}}
    * @slot {{ error: object }} error
    */
-  import { SDK as Appwrite }  from "../appwrite";
-  export let file;
+  import { SDK as Appwrite } from "../appwrite";
 
+  export let file;
   const actions = {
     download: () => Appwrite.sdk.storage.getFileDownload(file.$id),
     view: (as = "") => Appwrite.sdk.storage.getFileView(file.$id, as),
