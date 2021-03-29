@@ -32,11 +32,11 @@
       </Locale>
       <br />
       <Countries let:countries>
-        The world has {Object.keys(countries).length} countries!
+        The world has {Object.keys(countries.countries).length} countries!
       </Countries>
       <br />
       <Countries let:countries eu={true}>
-        The european union has {Object.keys(countries).length} members!
+        The european union has {Object.keys(countries.countries).length} members!
       </Countries>
       <br />
       <button on:click={actions.logout(actions.reload)}>Logout</button>
