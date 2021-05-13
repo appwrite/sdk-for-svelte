@@ -12,7 +12,7 @@
   import { active } from "../stores";
   import { SDK as Appwrite } from "../appwrite";
 
-  const dispatch = createEventDispatcher;
+  const dispatch = createEventDispatcher();
   const fetchPreferences = async () => {
     try {
       const response = await Appwrite.sdk.account.getPrefs();
