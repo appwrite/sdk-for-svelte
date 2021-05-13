@@ -11,7 +11,7 @@
   import { active } from "../stores";
   import { SDK as Appwrite } from "../appwrite";
 
-  const dispatch = createEventDispatcher;
+  const dispatch = createEventDispatcher();
   const actions = {
     create: async url => {
       try {
