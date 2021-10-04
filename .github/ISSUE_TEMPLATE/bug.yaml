@@ -32,9 +32,9 @@ body:
       description: "What did actually happen? Add screenshots, if applicable."
       placeholder: "It actually ..."
   - type: dropdown
-    id: svelte-sdk-version
+    id: appwrite-version
     attributes:
-      label: "🎲 Svelte SDK version"
+      label: "🎲 appwrite version"
       description: "What version of Appwrite are you running?"
       options:
         - Version 0.2.x (beta)
