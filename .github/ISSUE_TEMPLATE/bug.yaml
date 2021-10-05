@@ -37,10 +37,11 @@ body:
       label: "🎲 Appwrite version"
       description: "What version of Appwrite are you running?"
       options:
-        - Version 0.2.x (beta)
-        - Version 0.1.x (beta)
-        - Version 0.0.1 (beta)
-        - Version 0.0.1 (alpha)
+        - Version 0.10.x
+        - Version 0.9.x
+        - Version 0.8.x
+        - Version 0.7.x
+        - Version 0.6.x
         - Different version (specify in environment)
     validations:
       required: true
