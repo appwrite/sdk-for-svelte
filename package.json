@@ -25,6 +25,7 @@
     "src",
     "types"
   ],
+  "main": "./types/index.d.ts",
   "types": "./types/index.d.ts",
   "dependencies": {
     "appwrite": "^3.0.1"
