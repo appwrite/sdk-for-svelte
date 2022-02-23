@@ -5,7 +5,7 @@
 
   const upload = async actions => {
     if (input.length < 1 || !(input[0].name.endsWith(".png") || input[0].name.endsWith(".jpg"))) return;
-    actions.create(input[0]);
+    actions.create('unique()', input[0]);
   };
 </script>
 

@@ -15,10 +15,11 @@
   export let search = "";
   export let limit = 25;
   export let offset = 0;
-  export let orderType = "";
+  export let cursor = "";
+  export let cursorDirection = "";
 
   const fetchExecutions = () =>
-    Appwrite.sdk.functions.listExecutions(id, search, limit, offset, orderType);
+    Appwrite.sdk.functions.listExecutions(id, limit, offset, search, cursor, cursorDirection);
 
   const actions = {
     reload: () => (documents = fetchExecutions()),
@@ -28,7 +29,7 @@
       return response;
     },
     get: async execution => {
-      return await Appwrite.sdk.functions.getExecution(execution);
+      return await Appwrite.sdk.functions.getExecution(id, execution);
     },
   };
 

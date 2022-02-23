@@ -12,12 +12,14 @@
   export let search = "";
   export let limit = 25;
   export let offset = 0;
+  export let cursor = "";
+  export let cursorDirection = "";
   export let orderType = "ASC";
   const actions = {
     reload: () => (files = fetchFiles()),
   };
   const fetchFiles = () =>
-    Appwrite.sdk.storage.listFiles(search, limit, offset, orderType);
+    Appwrite.sdk.storage.listFiles(search, limit, offset, cursor, cursorDirection, orderType);
 
   let files = fetchFiles();
 </script>

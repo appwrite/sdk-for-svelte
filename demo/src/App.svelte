@@ -45,22 +45,22 @@
       <div slot="error">
         <AuthOAuth2
           provider="discord"
-          success="http://localhost:5000?success"
-          failure="http://localhost:5000?failure"
+          success="http://localhost:8080?success"
+          failure="http://localhost:8080?failure"
           let:authorize>
           <button on:click={authorize}>Login Discord</button>
         </AuthOAuth2>
         <AuthOAuth2
           provider="twitch"
-          success="http://localhost:5000?success"
-          failure="http://localhost:5000?failure"
+          success="http://localhost:8080?success"
+          failure="http://localhost:8080?failure"
           let:authorize>
           <button on:click={authorize}>Login Twitch</button>
         </AuthOAuth2>
         <AuthOAuth2
           provider="google"
-          success="http://localhost:5000?success"
-          failure="http://localhost:5000?failure"
+          success="http://localhost:8080?success"
+          failure="http://localhost:8080?failure"
           let:authorize>
           <button on:click={authorize}>Login Google</button>
         </AuthOAuth2>

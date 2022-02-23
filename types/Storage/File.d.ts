@@ -2,6 +2,7 @@
 import { SvelteComponentTyped } from "svelte";
 
 export interface FileProps {
+  fileId: string;
   file?: undefined;
 }
 

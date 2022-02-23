@@ -10,6 +10,7 @@ export default class Create extends SvelteComponentTyped<
     default: {
       actions: {
         create: (
+          userId: string,
           email: string,
           password: string,
           name?: string

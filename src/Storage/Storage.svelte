@@ -15,6 +15,7 @@
 
   const actions = {
     create: async (
+      fileId,
       file,
       read = [`user:${$currentUser.$id}`],
       write = [`user:${$currentUser.$id}`]
@@ -22,6 +23,7 @@
       try {
         dispatch("upload");
         const response = await Appwrite.sdk.storage.createFile(
+          fileId,
           file,
           read,
           write

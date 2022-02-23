@@ -4,7 +4,7 @@
   let value = "";
 
   const addTodo = actions => {
-    actions.create({ label: value });
+    actions.create('unique()', { label: value });
     value = "";
   };
 </script>

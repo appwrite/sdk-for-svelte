@@ -16,7 +16,7 @@
     "prettier": "^2.1.1",
     "prettier-plugin-svelte": "^2.1.4",
     "sveld": "^0.7.0",
-    "svelte": "^3.32.0"
+    "svelte": "^3.46.0"
   },
   "keywords": [
     "svelte"
@@ -27,7 +27,7 @@
   ],
   "types": "./types/index.d.ts",
   "dependencies": {
-    "appwrite": "^3.0.1"
+    "appwrite": "^6.0.1"
   },
   "husky": {
     "hooks": {

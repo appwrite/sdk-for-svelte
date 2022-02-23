@@ -22,7 +22,12 @@ export interface FunctionProps {
   /**
    * @default ""
    */
-  orderType?: string;
+  cursor?: string;
+
+  /**
+   * @default ""
+   */
+   cursorDirection?: string;
 }
 
 export default class Function extends SvelteComponentTyped<

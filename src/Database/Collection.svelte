@@ -25,10 +25,10 @@
 
   export let offset = 0;
   export let limit = 25;
-  export let orderField = "";
-  export let orderType = "";
-  export let orderCast = "string";
-  export let search = "";
+  export let cursor = "";
+  export let cursorDirection = "";
+  export let orderAttributes = [];
+  export let orderTypes = [];
 
   /**
    * @description Enables document caching. Call `actions.reload()` to get fresh document(s)
@@ -42,10 +42,10 @@
       filters,
       limit,
       offset,
-      orderField,
-      orderType,
-      orderCast,
-      search,
+      cursor,
+      cursorDirection,
+      orderAttributes,
+      orderTypes,
     });
   };
 
@@ -55,21 +55,17 @@
       getDocuments = fetchDocuments();
     },
     create: async (
+      documentId,
       data,
       read = [`user:${$currentUser.$id}`],
       write = [`user:${$currentUser.$id}`],
-      parentDocument = "",
-      parentProperty = "",
-      parentPropertyType = "assign"
     ) => {
       const response = await Appwrite.sdk.database.createDocument(
         id,
+        documentId,
         data,
         read,
-        write,
-        parentDocument,
-        parentProperty,
-        parentPropertyType
+        write
       );
       actions.reload();
       return response;

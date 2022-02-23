@@ -63,8 +63,8 @@
         document.$collection,
         document.$id,
         data,
-        document.$permissions.read,
-        document.$permissions.write
+        document.$read,
+        document.$write
       );
       actions.reload();
       dispatch("change");

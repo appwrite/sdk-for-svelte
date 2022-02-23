@@ -18,6 +18,16 @@ export interface FileListProps {
   offset?: number;
 
   /**
+   * @default ""
+   */
+   cursor?: string;
+   
+  /**
+   * @default ""
+   */
+   cursorDirection?: string;   
+
+  /**
    * @default "ASC"
    */
   orderType?: string;

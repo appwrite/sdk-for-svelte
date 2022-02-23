@@ -17,7 +17,7 @@ export class DocumentsStore {
    * Get Documents in a Collection
    * @param {string} id Collection Id
    * @param {boolean} cache Use cached response
-   * @param {{ filters: string[], limit: number, offset: number, orderField: string, orderType: string, orderCast: string, search: string }} query Query paramters
+   * @param {{ filters: string[], limit: number, offset: number, cursor: string, cursorDirection: string, orderAttributes: string[], orderTypes: string[] }} query Query paramters
    * @returns {Promise<{documents: any[], sum: number}>}
    */
   async fetchDocuments(id, cache, query) {
@@ -39,10 +39,10 @@ export class DocumentsStore {
       query.filters,
       query.limit,
       query.offset,
-      query.orderField,
-      query.orderType,
-      query.orderCast,
-      query.search
+      query.cursor,
+      query.cursorDirection,
+      query.orderAttributes,
+      query.orderTypes
     );
 
     if (cache) {
