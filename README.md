@@ -134,7 +134,7 @@ Registers a new account.
   <input type="text" bind:value={email}>
   <input type="password" bind:value={password}>
   <input type="text" bind:value={name}>
-  <button on:click={actions.create(email,password, name)}>Register</button>
+  <button on:click={actions.create('unique()', email,password, name)}>Register</button>
 </Create>
 ```
 
@@ -147,7 +147,7 @@ Object with function.
 #### Arguments
 | Name | Description |
 | --- | --- |
-| `create(email, password, name)` | Registers a new user. |
+| `create(userId, email, password, name)` | Registers a new user. |
 
 ### Events
 
@@ -317,7 +317,7 @@ Object with function.
 | Name | Description |
 | --- | --- |
 | `reload()` | Re-fetch collection. |
-| `create(data, read, write)` | Create a new Document in the collection. `read`/`write` is optional and current user by default. |
+| `create(documentId, data, read, write)` | Create a new Document in the collection. `read`/`write` is optional and current user by default. |
 
 ## Get Document
 
@@ -407,7 +407,7 @@ The Account components allow you to manage a user account.
 **let:actions**
 | Name | Description |
 | --- | --- |
-| `create(email, password, name)` | Creates a user. |
+| `create(userId, email, password, name)` | Creates a user. |
 
 #### Events
 
@@ -626,12 +626,11 @@ The Database components allow you to create structured collections of documents,
 - filters
 - offset
 - limit
-- orderField
-- orderType
-- orderCast
-- search
-- first
-- last
+- cursor
+- cursorDirection
+- orderAttributes
+- orderTypes
+
 
 #### Slots
 
@@ -644,7 +643,7 @@ The Database components allow you to create structured collections of documents,
 | Name | Description |
 | --- | --- |
 | `reload()` | Reload. |
-| `create(data, read, write)` | Creates a Document. |
+| `create(documentId, data, read, write)` | Creates a Document. |
 
 - **let:documents**
 - **let:error**
@@ -684,7 +683,7 @@ The Storage components allow you to manage your project files. You can upload, v
 **let:actions**
 | Name | Description |
 | --- | --- |
-| `create(file, read, write)` | Uploads a file. |
+| `create(fileId, file, read, write)` | Uploads a file. |
 
 - **let:files**
 
@@ -695,6 +694,8 @@ The Storage components allow you to manage your project files. You can upload, v
 - search
 - limit
 - offset
+- cursor
+- cursorDirection
 - orderType
 
 #### Slots

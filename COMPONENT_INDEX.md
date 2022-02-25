@@ -118,17 +118,17 @@ None.
 
 ### Props
 
-| Prop name  | Kind             | Reactive | Type                  | Default value         | Description |
-| :--------- | :--------------- | :------- | :-------------------- | --------------------- | ----------- |
-| id         | <code>let</code> | No       | <code>string</code>   | --                    | --          |
-| filters    | <code>let</code> | No       | <code>string[]</code> | <code>[]</code>       | --          |
-| offset     | <code>let</code> | No       | <code>number</code>   | <code>0</code>        | --          |
-| limit      | <code>let</code> | No       | <code>number</code>   | <code>25</code>       | --          |
-| orderField | <code>let</code> | No       | <code>string</code>   | <code>""</code>       | --          |
-| orderType  | <code>let</code> | No       | <code>string</code>   | <code>""</code>       | --          |
-| orderCast  | <code>let</code> | No       | <code>string</code>   | <code>"string"</code> | --          |
-| search     | <code>let</code> | No       | <code>string</code>   | <code>""</code>       | --          |
-| cache      | <code>let</code> | No       | <code>boolean</code>  | <code>false</code>    | --          |
+| Prop name        | Kind             | Reactive | Type                  | Default value         | Description |
+| :---------       | :--------------- | :------- | :-------------------- | --------------------- | ----------- |
+| id               | <code>let</code> | No       | <code>string</code>   | --                    | --          |
+| filters          | <code>let</code> | No       | <code>string[]</code> | <code>[]</code>       | --          |
+| offset           | <code>let</code> | No       | <code>number</code>   | <code>0</code>        | --          |
+| limit            | <code>let</code> | No       | <code>number</code>   | <code>25</code>       | --          |
+| cursor           | <code>let</code> | No       | <code>string</code>   | <code>""</code>       | --          |
+| cursorDirection  | <code>let</code> | No       | <code>string</code>   | <code>""</code>       | --          |
+| orderAttributes  | <code>let</code> | No       | <code>string[]</code> | <code>[]</code>       | --          |
+| orderTypes       | <code>let</code> | No       | <code>string[]</code> | <code>[]</code>       | --          |
+| cache            | <code>let</code> | No       | <code>boolean</code>  | <code>false</code>    | --          |
 
 ### Slots
 
@@ -190,7 +190,7 @@ None.
 
 | Slot name | Default | Props                                                                                                       | Fallback |
 | :-------- | :------ | :---------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ actions: { create: (email: string, password: string, name?: string) => Promise<object>; } } </code> | --       |
+| --        | Yes     | <code>{ actions: { create: (userId: string, email: string, password: string, name?: string) => Promise<object>; } } </code> | --       |
 
 ### Events
 
@@ -242,6 +242,7 @@ None.
 
 | Prop name  | Kind             | Reactive | Type                 | Default value | Description |
 | :--------- | :--------------- | :------- | :------------------- | ------------- | ----------- |
+| documentId | <code>let</code> | Yes      | <code>string</code>  | --            | --          |
 | document   | <code>let</code> | Yes      | <code>any</code>     | --            | --          |
 | collection | <code>let</code> | Yes      | <code>string</code>  | --            | --          |
 | id         | <code>let</code> | Yes      | <code>string</code>  | --            | --          |
@@ -283,9 +284,10 @@ None.
 
 ### Props
 
-| Prop name | Kind             | Reactive | Type | Default value | Description |
-| :-------- | :--------------- | :------- | :--- | ------------- | ----------- |
-| file      | <code>let</code> | No       | --   | --            | --          |
+| Prop name | Kind             | Reactive | Type                  | Default value | Description |
+| :-------- | :--------------- | :------- | :-------------------- | ------------- | ----------- |
+| fileId    | <code>let</code> | No       | <code>string</code>   | --            | --          |
+| file      | <code>let</code> | No       | --                    | --            | --          |
 
 ### Slots
 
@@ -302,12 +304,14 @@ None.
 
 ### Props
 
-| Prop name | Kind             | Reactive | Type                | Default value      | Description |
-| :-------- | :--------------- | :------- | :------------------ | ------------------ | ----------- |
-| search    | <code>let</code> | No       | <code>string</code> | <code>""</code>    | --          |
-| limit     | <code>let</code> | No       | <code>number</code> | <code>25</code>    | --          |
-| offset    | <code>let</code> | No       | <code>number</code> | <code>0</code>     | --          |
-| orderType | <code>let</code> | No       | <code>string</code> | <code>"ASC"</code> | --          |
+| Prop name       | Kind             | Reactive | Type                | Default value      | Description |
+| :-------------- | :--------------- | :------- | :------------------ | ------------------ | ----------- |
+| search          | <code>let</code> | No       | <code>string</code> | <code>""</code>    | --          |
+| limit           | <code>let</code> | No       | <code>number</code> | <code>25</code>    | --          |
+| offset          | <code>let</code> | No       | <code>number</code> | <code>0</code>     | --          |
+| cursor          | <code>let</code> | No       | <code>string</code> | <code>""</code>    | --          |
+| cursorDirection | <code>let</code> | No       | <code>string</code> | <code>""</code>    | --          |
+| orderType       | <code>let</code> | No       | <code>string</code> | <code>"ASC"</code> | --          |
 
 ### Slots
 
@@ -346,13 +350,13 @@ None.
 
 ### Props
 
-| Prop name | Kind             | Reactive | Type                | Default value   | Description |
-| :-------- | :--------------- | :------- | :------------------ | --------------- | ----------- |
-| id        | <code>let</code> | No       | --                  | --              | --          |
-| search    | <code>let</code> | No       | <code>string</code> | <code>""</code> | --          |
-| limit     | <code>let</code> | No       | <code>number</code> | <code>25</code> | --          |
-| offset    | <code>let</code> | No       | <code>number</code> | <code>0</code>  | --          |
-| orderType | <code>let</code> | No       | <code>string</code> | <code>""</code> | --          |
+| Prop name       | Kind             | Reactive | Type                | Default value   | Description |
+| :-------------- | :--------------- | :------- | :------------------ | --------------- | ----------- |
+| id              | <code>let</code> | No       | --                  | --              | --          |
+| search          | <code>let</code> | No       | <code>string</code> | <code>""</code> | --          |
+| limit           | <code>let</code> | No       | <code>number</code> | <code>25</code> | --          |
+| cursor          | <code>let</code> | No       | <code>string</code> | <code>""</code> | --          |
+| cursorDirection | <code>let</code> | No       | <code>string</code> | <code>""</code> | --          |
 
 ### Slots
 
@@ -487,7 +491,7 @@ None.
 
 | Slot name | Default | Props                                                                                                    | Fallback |
 | :-------- | :------ | :------------------------------------------------------------------------------------------------------- | :------- |
-| --        | Yes     | <code>{ actions: { create: (file: any, read?: string[], write?: string[]) => Promise<object>; }} </code> | --       |
+| --        | Yes     | <code>{ actions: { create: (fileId: string, file: any, read?: string[], write?: string[]) => Promise<object>; }} </code> | --       |
 | error     | No      | <code>{ error: object } </code>                                                                          | --       |
 
 ### Events

@@ -4,8 +4,6 @@ import { SvelteComponentTyped } from "svelte";
 export interface CollectionProps {
   id?: string;
 
-  documentId: string;
-
   /**
    * @default []
    */
