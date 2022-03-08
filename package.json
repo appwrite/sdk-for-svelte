@@ -27,7 +27,7 @@
   ],
   "types": "./types/index.d.ts",
   "dependencies": {
-    "appwrite": "^6.0.1"
+    "appwrite": "^7.0.0"
   },
   "husky": {
     "hooks": {
