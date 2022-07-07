@@ -1,3 +1,5 @@
+**⚠️ Warning - this SDK was designed to support Appwrite 0.9 and is not compatible with the latest Appwrite versions. We are planing to refactor it as part of the [SDK Generator](https://github.com/appwrite/sdk-generator) for better support and maintenance.**
+
 # svelte-appwrite (Beta)
 
 Easy to use [Appwrite](https://appwrite.io/) components for Svelte. Install it:
