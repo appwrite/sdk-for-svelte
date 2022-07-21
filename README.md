@@ -71,7 +71,7 @@ Handle multiple levels of async relational data (and their loading & fallback st
         <h1>Hello {user.name}!</h1>
 
         <!-- 3. 📚 Get all the documents from a collection -->
-        <Collection collection="5f56a3035a01f" let:documents>
+        <Collection id="5f56a3035a01f" let:documents>
             You have {documents.length} documents.
             
             {#each documents as document}
@@ -294,7 +294,7 @@ Get a list of all the documents from a collection.
   import { Collection } from "svelte-appwrite";
 </script>
 
-<Collection collection="5f56a3035a01f" let:documents>
+<Collection id="5f56a3035a01f" let:documents>
   You have {documents.length} documents.
 </Collection>
 ```
